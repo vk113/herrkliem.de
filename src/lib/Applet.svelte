@@ -8,69 +8,13 @@
 	import * as ph from '$lib/physic.js';
 	import { onMount } from 'svelte';
 	
-	import * as knobby from 'svelte-knobby';
 
 	let width = 0;
     let height = 0;
-
-	const controls = knobby.panel({
-		// labelled control panels are collapsible
-		$label: 'Main options',
-
-		// primitive values are handled automatically
-		message: 'Hello World!',
-		color: '#ff3e00',
-		clicks: 0,
-		checked: false,
-
-		increment: value => ({
-			...value,
-			clicks: value.clicks + 1
-		}),
-
-		Source_x: {
-			$label: 'Source_x',
-			value: 50,
-			min: 0,
-			max: 1000,
-			step: 1
-		},
-		Source_y: {
-			$label: 'Source_y',
-			value: 50,
-			min: 0,
-			max: 1000,
-			step: 1
-		},
-
-		B: {
-			$label: 'B',
-			value: 0.1,
-			min: 0, 
-			max: 0.5,
-			step: 0.01
-		},
+	let running = true;
 
 
-		// objects that can't be 'interpreted' (see below)
-		// are treated as folders
-		folder: {
-			$label: 'labelled folder',
-			a: 1, // accessed as $controls.folder.a
-			b: 2,
-			nested: {
-				c: 3, // accessed as $controls.folder.nested.c
-				d: 4
-			}
-		}
-	});
-
-
-
-
-	let simulation = new ph.Simulation(new ph.Source($controls.Source_x, $controls.Source_x), [], [new ph.EField(100, 100, 200, 200, {x: 0, y: 0.05})], [new ph.BField(100, 100, 200, 200, $controls.B)]);
-
-	$: simulation.b_fields[0].B = $controls.B;
+	let simulation = new ph.Simulation(new ph.Source(100, 500), [], [new ph.EField(100, 100, 200, 200, {x: 0, y: 0.05})], [new ph.BField(100, 100, 200, 200, 0.1)]);
 
 	onMount(() => {
 		let frame;
@@ -78,29 +22,40 @@
 		function loop() {
 
 			frame = requestAnimationFrame(loop);
-			if (frame % 5 == 0){
+			if(running){
 
-				simulation.particles.push(simulation.random_particle($controls.Source_x, $controls.Source_y))
-			}
-
-				simulation.update(width,height);
-
+				if (frame % 5 == 0){
+					
+					simulation.particles.push(simulation.random_particle())
+				}
 				
-				simulation.particles = simulation.particles;
+				simulation.update(width,height);
+				
+				
 			}
+			simulation.particles = simulation.particles;
+		}
 
 
 		loop();
 		return () => cancelAnimationFrame(frame);
 	});
+
+	function add_e_field(){
+		simulation.e_fields.push(new ph.EField(100, 100, 200, 200, {x: 0, y: 0.05}))
+	}
+
+	function add_b_field(){
+		simulation.b_fields.push(new ph.BField(100, 100, 200, 200, 0.1))
+	}
 </script>
 
 <svelte:window bind:innerHeight={height} bind:innerWidth={width}></svelte:window>
 <div>
 	<Grid/>
-	<Menu/>
+	<Menu bind:running on:restart={()=>{simulation.particles = []}} on:add_b_field={add_b_field} on:add_e_field={add_e_field} />
 	<div class="absolute bg-gray-300 shadow-sm">
-		<Source bind:l={$controls.Source_x} bind:t={$controls.Source_y} />
+		<Source bind:l={simulation.source.l} bind:t={simulation.source.t} w={simulation.source.w} h={simulation.source.h}/>
 	</div>
 	{#each simulation.particles as particle}
 

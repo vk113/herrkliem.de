@@ -33,8 +33,8 @@ export class Particle {
         })
         b_fields.forEach((B) => {
             if (B.l < this.x && this.x < B.l + B.w && B.t < this.y && this.y < B.t + B.h){
-                x += -this.vy*B.B
-                y += this.vx*B.B
+                x += (this.q*-this.vy*B.B)/this.m
+                y += (this.q*this.vx*B.B)/this.m
             }
         })
         return {x: x, y: y};
@@ -71,9 +71,11 @@ export class Slit {
 }
 
 export class Source {
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
+    constructor(l, t){
+        this.l = l;
+        this.t = t;
+        this.w = 50;
+        this.h = 50;
     }
 }
 
@@ -85,14 +87,14 @@ export class Simulation {
         this. b_fields = b_fields;
     }
 
-    random_particle(x, y, vx_min=2.5, vx_max=3, vy_min=-0.01, vy_max=0.01, m_min=1, m_max=2){
+    random_particle(vx_min=2, vx_max=2, vy_min=0, vy_max=0, m_min=1, m_max=5){
         return new Particle(
-            x,
-            y,
+            this.source.l + this.source.w,
+            this.source.t + this.source.h/2,
             vx_min + Math.random()*(vx_max-vx_min),
             vy_min + Math.random()*(vy_max-vy_min),
-            m_min + Math.random()*(m_max - m_min),
-            (-1)**Number(Math.random() < 0.5)
+            Math.round(m_min + Math.random()*(m_max - m_min)),
+            0.1//*(-1)**Number(Math.random() < 0.5)
             
             
         )
