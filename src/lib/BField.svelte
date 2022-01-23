@@ -16,7 +16,7 @@
 </script>
 
 
-<Movable bind:t={b_field.t} bind:l={b_field.l} bind:w={b_field.w} bind:h={b_field.h} resizable in_front={!$e_in_front}>
+<Movable bind:t={b_field.t} bind:l={b_field.l} bind:w={b_field.w} bind:h={b_field.h} resizable in_front={$e_in_front}>
     <div slot="settings">
         <SettingsBlock>
             <SettingsItem bind:value={b_field.B} name={"B"} min={$B_min} max={$B_max} step={$B_step}/>

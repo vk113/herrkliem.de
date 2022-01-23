@@ -15,7 +15,7 @@
 
 </script>
 <div class="flex justify-evenly align-bottom absolute top-0 left-0 w-full bg-gray-200 p-3 items-center z-10">
-    <div class="flex flex-col space-y-2">
+    <!-- <div class="flex flex-col space-y-2">
         <div class="font-bold text-gray-700">
             Bearbeiten:
         </div>
@@ -30,7 +30,7 @@
                 E-Feld
             </div>
         </div>
-    </div>
+    </div> -->
     <button class="text-green-500 flex flex-row items-center space-x-1" on:click={() => {dispatch("add_e_field")}}>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
