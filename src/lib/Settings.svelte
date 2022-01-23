@@ -17,8 +17,8 @@
     <h1 class="font-bold text-xl">
         Einstellungen
     </h1>
-    <h3 class="h3 text-green-500">
-        Elektrische Felder
+    <h3 class="h3 text-red-500">
+        Magnetfelder
     </h3>
     {#each simulation.b_fields as b_field, i}
         <div>
@@ -33,8 +33,8 @@
 
     {/each}
     <hr class="border border-gray-700 -mx-4 my-2">
-    <h3 class="h3 text-red-500">
-        Magnetfelder
+    <h3 class="h3 text-green-500">
+        Elektrische Felder
     </h3>
     {#each simulation.e_fields as e_field, i}
         <div>
