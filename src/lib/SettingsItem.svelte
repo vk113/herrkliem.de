@@ -4,7 +4,6 @@
     export let min; 
     export let max; 
     export let step;
-    export let type="number";
     export let unit = "T";
 </script>
 

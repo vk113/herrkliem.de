@@ -1,5 +1,5 @@
 <script>
-    let expended = false;
+    export let expended = false;
     import { fade } from "svelte/transition";
 </script>
 <div class="absolute -top-3 -right-2 bg-gray-100 text-gray-700 {expended?"p-3":"p-1"} rounded-xl shadow-xl opacity-100 z-10">

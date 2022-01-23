@@ -139,7 +139,7 @@ export class Simulation {
             v,
             vy_min + Math.random()*(vy_max-vy_min),
             Math.round(m_min + Math.random()*(m_max - m_min)),
-            0.1,//*(-1)**Number(Math.random() < 0.5)
+            -0.1,//*(-1)**Number(Math.random() < 0.5)
             color
             
         )

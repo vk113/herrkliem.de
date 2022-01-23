@@ -1,7 +1,7 @@
 <script>
     import Movable from "$lib/Movable.svelte";
     export let screen;
-    export let step = 4;
+    export let step = 10;
     export let binstep = 6;
     export let stats = [];
     
@@ -49,10 +49,9 @@
                 <div style="right: {screen.h - tick}px" class="absolute h-2 w-0 border border-black border-1">
                 </div>
             {/if}
-            <!-- stats.filter(x => {x==tick}).length * 10 -->
         {/each}
         {#each bins as bin, i}
-            <div style="right:{screen.h - bin - binstep/2}px; height: {stats.filter(x => x<bin && x>bin-binstep).length}px; width:{binstep}px" class="absolute bottom-0 border bg-red-500 border-1"> 
+            <div style="right:{screen.h - bin + binstep/2}px; height: {stats.filter(x => x<=bin && x>bin-binstep).length}px; width:{binstep}px" class="absolute bottom-0 border bg-blue-500 border-1"> 
             </div>
         {/each}
     </div>
