@@ -10,7 +10,7 @@
 <Movable bind:t={e_field.t} bind:l={e_field.l} bind:w={e_field.w} bind:h={e_field.h} resizable in_front={$e_in_front}>
     <div slot="settings">
         <SettingsBlock>
-            <SettingsItem bind:value={e_field.E.y} name={"E"} unit="V/m" min={0} max={0.1} step={0.001}>
+            <SettingsItem bind:value={e_field.E.y} name={"E"} unit="V/m" min={0} max={0.5} step={0.001}>
     
             </SettingsItem>
         </SettingsBlock>    

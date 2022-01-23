@@ -14,7 +14,6 @@
         for (let i = 0; i<height; i=i+s){
             vlines.push(i);
         }
-        console.log(hlines, vlines)
         vlines = vlines;
         hlines = hlines;
     }

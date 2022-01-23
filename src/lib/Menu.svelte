@@ -3,6 +3,8 @@
     import {e_in_front} from "$lib/settings";
     import { createEventDispatcher } from "svelte";
     export let running;
+    export let speed;
+    export let density;
     $: running = running;
 
     const dispatch = createEventDispatcher();
@@ -41,6 +43,16 @@
         </span>
     </button>
 
+    
+    <div class="flex flex-row items-center space-x-2">
+        <div>Zeitlupe</div>
+        <input type="range" bind:value={speed} min={0.001} max={0.2} step={0.0001}>
+        <div class="w-12 text-gray-800">x{String(speed).replace(".", ",")}</div>
+    </div>
+    <div class="flex flex-row items-center space-x-2">
+        <div>Teilchendichte</div>
+        <input type="range" bind:value={density} min={0} max={50} step={1}>
+    </div>
     <div class="flex flex-row space-x-2 items-center">
         <button on:click={()=>{running = !running}} class="hover:scale-105 transition" >
             {#if running}

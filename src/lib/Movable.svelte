@@ -1,9 +1,10 @@
 <script>
     export let resizable = false;
-    export let l=20;
-    export let t=20;
-    export let w = 100;
-    export let h = 100;
+    export let l;
+    export let t;
+    export let w;
+    export let h;
+	export let w_constant = false;
 	export let in_front;
 
 	let resize = false;
@@ -16,7 +17,9 @@
 	
 	function onMouseMove(e) {
 		if (resize) {
-			w += e.movementX;
+			if(!w_constant){
+				w += e.movementX;
+			}
 			h += e.movementY;
 		} else if (moving) {
 			l += e.movementX;
@@ -40,23 +43,31 @@
 <style lang="postcss">
     .draggable {
 		cursor: move;
-		border: solid 1px gray;
 		position: absolute;
 	}
 
 </style>
-<div class="draggable bg-green-500 opacity-50" style="top:{t}px; left:{l}px; width:{w}px; height:{h}px" bind:offsetWidth={w} bind:offsetHeight={h}>
+<div class="draggable bg-green-100 opacity-50" style="top:{t}px; left:{l}px; width:{w}px; height:{h}px" bind:offsetWidth={w} bind:offsetHeight={h}>
 	{#if in_front}
 	<slot name="settings"></slot>
 	{/if}
 	<div on:mousedown={onMouseDown} on:touchstart={onMouseDown} >
 			<slot name="content"></slot>
 		{#if resizable}
-		<div class="absolute bottom-0 right-0 w-5 h-5 bg-white z-2" on:mousedown={onMouseResize}>
-			<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-			</svg>
-		</div>
+			{#if w_constant}
+				<div class="absolute bottom-[1px] left-[1px] w-4 h-4 bg-white z-2" on:mousedown={onMouseResize}>
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+					</svg>
+				</div>
+			{:else}
+				<div class="absolute bottom-0 right-0 w-5 h-5 bg-white z-2" on:mousedown={onMouseResize}>
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+					</svg>
+				</div>
+			{/if}
+		
 		{/if}
 	</div>
 </div>
