@@ -31,7 +31,7 @@
 		function loop() {
 			frame = requestAnimationFrame(loop);
 			if(running){
-				dt = (Date.now() - time)*simulation.speed
+				dt = (Date.now() - time)
 				time = Date.now()
 				if (frame % Math.round(50/simulation.density) == 0){
 					
@@ -73,7 +73,7 @@
 	}
 
 	function add_slit(){
-		if (simulation.slits.length == 0){
+		if (simulation.slits.length == 2){
 			simulation.slits.push(new ph.Slit(200, 200, 25, 500, 5))
 		}
 	}

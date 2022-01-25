@@ -1,3 +1,6 @@
+const u = 1.66054*10**(-27)
+const q = 1.602*10**(-19)
+const scale = 2000;
 export class Particle {
     constructor(x, y, vx, vy, m, q=-1, color){
         this.x = x;
@@ -15,8 +18,8 @@ export class Particle {
         let trapped = false;
         this.vx += a.x*dt;
         this.vy += a.y*dt;
-        this.x += (this.vx-0.5*a.x)*dt;
-        this.y += (this.vy-0.5*a.x)*dt;
+        this.x += this.vx*dt*scale;
+        this.y += this.vy*dt*scale;
         slits.forEach((S) => {
             if(S.l < this.x && this.x < S.l + S.w && S.t < this.y && this.y < S.t + S.h){
                 if(S.t+(S.h-S.gap)/2 < this.y && S.t+S.h/2+S.gap > this.y){
@@ -51,7 +54,7 @@ export class Particle {
             }
         })
         b_fields.forEach((B) => {
-            if (B.l < this.x && this.x < B.l + B.w && B.t < this.y && this.y < B.t + B.h){
+            if (B.l < this.x && this.x < (B.l + B.w) && B.t < this.y && this.y < (B.t + B.h)){
                 x += (this.q*-this.vy*B.B)/this.m
                 y += (this.q*this.vx*B.B)/this.m
             }
@@ -119,14 +122,14 @@ export class Simulation {
         this.b_fields = b_fields;
         this.slits = slits;
         this.screens = screens;
-        this.speed = 1/10;
+        this.speed = 5e-10;
         this.density = 20;
         this.trapped = [];
         this.stats = [];
     }
 
-    random_particle(vx_min=6, vx_max=10, vy_min=0, vy_max=0, m_min=1, m_max=5){
-        let v = Math.round(vx_min + Math.random()*(vx_max-vx_min))/3;
+    random_particle(vx_min=2.5*10**5, vx_max=2.5*10**5, vy_min=0, vy_max=0, m=[12*u, 14*u]){
+        let v = vx_min;//let v = Math.round(vx_min + Math.random()*(vx_max-vx_min))/3;
         let color;
         if(v == (vx_max-1)/3){
             color = "red";
@@ -138,8 +141,8 @@ export class Simulation {
             this.source.t + this.source.h/2,
             v,
             vy_min + Math.random()*(vy_max-vy_min),
-            Math.round(m_min + Math.random()*(m_max - m_min)),
-            -0.1,//*(-1)**Number(Math.random() < 0.5)
+            m[Math.floor(Math.random()*m.length)],
+            q,//*(-1)**Number(Math.random() < 0.5)
             color
             
         )
@@ -148,7 +151,7 @@ export class Simulation {
 
     update(dt, width, height){
         this.particles.forEach((p,i, o) => {
-            let status = p.update(dt, this.e_fields, this.b_fields, this.slits, this.screens, width, height);
+            let status = p.update(dt*this.speed, this.e_fields, this.b_fields, this.slits, this.screens, width, height);
             if(typeof status === "number"){
                 this.trapped.push(o[i])
                 this.stats.push(status);

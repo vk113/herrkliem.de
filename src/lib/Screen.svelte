@@ -1,7 +1,7 @@
 <script>
     import Movable from "$lib/Movable.svelte";
     export let screen;
-    export let step = 10;
+    export let step = 4;
     export let binstep = 6;
     export let stats = [];
     

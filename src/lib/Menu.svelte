@@ -14,6 +14,7 @@
     }
 
 </script>
+
 <div class="flex justify-evenly align-bottom absolute top-0 left-0 w-full bg-gray-200 p-3 items-center z-10">
     <!-- <div class="flex flex-col space-y-2">
         <div class="font-bold text-gray-700">
@@ -67,8 +68,7 @@
     
     <div class="flex flex-col items-center space-x-2">
         <div class="text-xs text-gray-700 font-extrabold tracking-tight uppercase">Zeitlupe</div>
-        <input type="range" bind:value={speed} min={0.001} max={0.2} step={0.0001}>
-        <!-- <div class="w-12 text-gray-800">x{String(speed).replace(".", ",")}</div> -->
+        <input type="range" bind:value={speed} step={1e-11} min={0} max={1e-9}> 
     </div>
     <div class="flex flex-col items-center space-x-2">
         <div class="text-xs text-gray-700 font-extrabold tracking-tight uppercase">Teilchendichte</div>

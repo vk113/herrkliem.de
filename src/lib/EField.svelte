@@ -7,7 +7,7 @@
     export let i;
     let max_density = 30; //minimum distance betwween two arrows
     $: direction_down = e_field.E.y > 0; 
-    $: n_of_arrows = Math.floor(e_field.w/max_density*Math.abs(e_field.E.y)/$E_max);
+    $: n_of_arrows = Math.floor(e_field.w/max_density*Math.abs(Math.min(e_field.E.y, $E_max))/$E_max);
     $: arrows = [...Array(n_of_arrows).keys()].map(i => e_field.w/(n_of_arrows+1)*(i+1/2));
 </script>
 
@@ -26,7 +26,7 @@
         </div>
         <div class="absolute cursor-none border-2 border-gray-700 w-full h-[10%] text-white">
         </div>
-        <div class="absolute top-[10%] h-[80%] w-full border-2 border-green-500 overflow-hidden opacity-50 {$e_in_front?'z-5':'z-2'}">
+        <div class="absolute top-[10%] h-[80%] w-full border-2 border-green-500 overflow-hidden opacity-50">
             
             {#each arrows as arrow}
             <div style="left:{arrow}px;transform: {direction_down?"":`translateX(${-e_field.w + max_density}px) rotate(180deg)`}" class="absolute w-full text-green-500">
