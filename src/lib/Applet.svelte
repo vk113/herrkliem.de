@@ -14,13 +14,7 @@
 	import { onMount } from 'svelte';
 	import { show_beams } from "./settings";
 
-
-	let width = 0;
-    let height = 0;
-	let running = true;
-
-
-	let simulation = new ph.Simulation(
+	export let simulation = new ph.Simulation(
 		new ph.Source(100, 500),
 		[],
 		[new ph.EField(100, 100, 200, 200, {x: 0, y: 350000})],
@@ -28,13 +22,21 @@
 	);
 
 
+	let width = 0;
+    let height = 0;
+	let running = true;
+
+
+
 	onMount(() => {
-		simulation.beams = [
-			new ph.Beam(simulation.random_particle()),
-			new ph.Beam(simulation.random_particle()),
-			new ph.Beam(simulation.random_particle()),
-			new ph.Beam(simulation.random_particle()),
-		]
+		document.ontouchmove = function(e) {e.preventDefault()};
+		simulation.vs.forEach((v,i) => {
+			simulation.ms.forEach(m => {
+				simulation.beams.push(new ph.Beam(simulation.random_particle([v], [m]), simulation.colors[i]))
+			})
+		}
+		)
+		
 		
 		
 		
@@ -113,7 +115,7 @@
 </script>
 
 <svelte:window bind:innerHeight={height} bind:innerWidth={width}></svelte:window>
-<div class="select-none overflow-hidden">
+<div class="select-none overflow-hidden fixed w-full h-full">
 	<Grid/>
 	<Menu  
 		bind:running
@@ -125,7 +127,7 @@
 		on:add_detector={add_detector} 
 		on:change={simulation.generate_beams(0.01, width, height)}
 		bind:speed={simulation.speed} bind:density={simulation.density}/>
-	<Settings bind:simulation />
+	<Settings bind:simulation on:input={simulation.generate_beams(0.01, width, height)} />
 	<div class="absolute bg-gray-300 shadow-sm">
 		<Source bind:l={simulation.source.l} bind:t={simulation.source.t} w={simulation.source.w} h={simulation.source.h} on:move={move_source}/>
 	</div>

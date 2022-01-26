@@ -78,8 +78,9 @@ export class Field {
 }
 
 export class Beam {
-    constructor(p, intensity = 5){
-        this.intensity = intensity
+    constructor(p, color, intensity = 5){
+        this.color = color;
+        this.intensity = intensity;
         this.startp = Object.create(p);
         this.p = Object.create(p);
         this.moving_p = p;
@@ -140,36 +141,35 @@ export class Detector {
 }
 
 export class Simulation {
-    constructor(source, particles, e_fields, b_fields, slits = [], screens=[], beams = [], detectors = []){
+    constructor(source, particles, e_fields, b_fields, slits = [], screens=[], beams = [], detectors = [], vs=[2*10**5, 3*10**5, 4*10**5], ms=[12*u]){
         this.source = source;
         this.particles = particles;
         this.e_fields = e_fields;
         this.b_fields = b_fields;
         this.slits = slits;
         this.screens = screens;
-        this.speed = 5e-10;
+        this.speed = 2e-10;
         this.density = 20;
         this.trapped = [];
         this.stats = [];
         this.beams = beams;
         this.detectors = detectors;
+        this.vs = vs;
+        this.ms = ms;
+        this.colors = ["blue", "red", "green"]
     }
-
-    random_particle(vx_min=2.5*10**5, vx_max=2.5*10**5, vy_min=0, vy_max=0, m=[12*u, 14*u]){
-        let v = vx_min;//let v = Math.round(vx_min + Math.random()*(vx_max-vx_min))/3;
-        let color;
-        if(v == (vx_max-1)/3){
-            color = "red";
-        }else{
-            color="blue";
-        }
+    
+    //random_particle(vx_min=3.8*10**7, vx_max=3.8*10**7, vy_min=0, vy_max=0){
+    random_particle(vs=this.vs, ms=this.ms, vy_min=0, vy_max=0){
+        let rand_index = Math.floor(Math.random()*vs.length)
+        let color = this.colors[rand_index]
         return new Particle(
             this.source.l + this.source.w,
             this.source.t + this.source.h/2,
-            v,
+            vs[rand_index],
             vy_min + Math.random()*(vy_max-vy_min),
-            m[Math.floor(Math.random()*m.length)],
-            q,//*(-1)**Number(Math.random() < 0.5)
+            ms[Math.floor(Math.random()*ms.length)],
+            -q,//*(-1)**Number(Math.random() < 0.5)
             color
             
         )
@@ -210,7 +210,7 @@ export class Simulation {
                     if(status == false){
                         alive=false;
                     }
-                    if (count == 2000){
+                    if (count == 20000){
                         alive=false;
                     }
                     if(typeof status === "object"){

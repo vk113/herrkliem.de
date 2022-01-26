@@ -13,7 +13,7 @@ $: {
     })}
 </script>
 
-<svg width="100%" height="100%" class="absolute top-0 left-0 z-10 stroke-green-500 stroke-2 fill-transparent pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<svg stroke="{beam.color?beam.color:"blue"}" width="100%" height="100%" class="absolute top-0 left-0 z-9 stroke-2 fill-transparent pointer-events-none" xmlns="http://www.w3.org/2000/svg">
     <path d={path}/>
     <!-- Punkte -->
 </svg>

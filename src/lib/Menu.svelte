@@ -18,6 +18,13 @@
 </script>
 
 <div class="flex justify-evenly align-bottom absolute top-0 left-0 w-full bg-gray-200 p-3 items-center z-10">
+    <div>
+        <a href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </a>
+    </div>
     <div class="font-bold {$show_beams?"text-green-500":"text-gray-700"}">
         Bahn einblenden
     </div>

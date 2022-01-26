@@ -7,8 +7,8 @@
     export let i;
     let max_density = 50;
     $: direction_down = b_field.B > 0; 
-    $: n_of_circles = Math.floor(b_field.w/max_density*Math.min(Math.abs(b_field.B), $B_max)/$B_max);
-    $: n_of_rows = Math.floor(b_field.h/max_density*Math.min(Math.abs(b_field.B), $B_max)/$B_max);
+    $: n_of_circles = Math.max(2, Math.floor(b_field.w/max_density*Math.min(Math.abs(b_field.B), $B_max)/$B_max));
+    $: n_of_rows = Math.max(2,Math.floor(b_field.h/max_density*Math.min(Math.abs(b_field.B), $B_max)/$B_max));
     $: rows = Array(n_of_rows)
     $: circles = Array(n_of_circles)
     
