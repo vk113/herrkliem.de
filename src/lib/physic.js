@@ -193,9 +193,10 @@ export class Simulation {
 
     generate_beams(dt, width, height){
             let sim = this;
+            let count;
             sim.detectors.forEach((d) => d.count = 0);
             this.beams.forEach((beam, j) => {
-                let count = 0;
+                count = 0;
                 let alive = true;
                 beam.p = Object.create(beam.startp);
                 beam.nodes = []
@@ -210,7 +211,7 @@ export class Simulation {
                     if(status == false){
                         alive=false;
                     }
-                    if (count == 20000){
+                    if (count == 50000){
                         alive=false;
                     }
                     if(typeof status === "object"){

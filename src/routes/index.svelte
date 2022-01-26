@@ -10,6 +10,9 @@
         <li>
             <a class="text-blue-500 hover:underline" href="/app/wienfilter">Wienfilter</a>
         </li>
+        <li>
+            <a class="text-blue-500 hover:underline" href="/app/elektronenstrahl">Elektronenstrahl</a>
+        </li>
     </ul>
 
 </div>

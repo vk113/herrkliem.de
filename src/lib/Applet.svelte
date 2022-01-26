@@ -109,7 +109,7 @@
 			b.startp.x = simulation.source.l + simulation.source.w,
 			b.startp.y = simulation.source.t + simulation.source.h/2;
             })
-		simulation.generate_beams(0.01, width, height);
+		simulation.generate_beams(0.005, width, height);
 	}
 
 </script>
@@ -125,9 +125,9 @@
 		on:add_slit={add_slit} 
 		on:add_screen={add_screen} 
 		on:add_detector={add_detector} 
-		on:change={simulation.generate_beams(0.01, width, height)}
+		on:change={simulation.generate_beams(0.005, width, height)}
 		bind:speed={simulation.speed} bind:density={simulation.density}/>
-	<Settings bind:simulation on:input={simulation.generate_beams(0.01, width, height)} />
+	<Settings bind:simulation on:input={simulation.generate_beams(0.005, width, height)} />
 	<div class="absolute bg-gray-300 shadow-sm">
 		<Source bind:l={simulation.source.l} bind:t={simulation.source.t} w={simulation.source.w} h={simulation.source.h} on:move={move_source}/>
 	</div>
@@ -143,12 +143,12 @@
 	{/each}
 	{#each simulation.e_fields as e_field, i}
 
-	<EField bind:e_field={e_field} {i} on:move={simulation.generate_beams(0.01, width, height)}/>
+	<EField bind:e_field={e_field} {i} on:move={simulation.generate_beams(0.005, width, height)}/>
 
 	{/each}
 	{#each simulation.b_fields as b_field, i}
 
-	<BField bind:b_field={b_field} {i}  on:move={simulation.generate_beams(0.01, width, height)}/>
+	<BField bind:b_field={b_field} {i}  on:move={simulation.generate_beams(0.005, width, height)}/>
 
 	{/each}
 	{#each simulation.slits as slit}
@@ -156,11 +156,11 @@
 	{/each}
 
 	{#each simulation.screens as screen}
-	<Screen bind:screen={screen} stats={simulation.stats} on:move={()=>{restart(); simulation.generate_beams(0.01, width, height)}} />
+	<Screen bind:screen={screen} stats={simulation.stats} on:move={()=>{restart(); simulation.generate_beams(0.005, width, height)}} />
 	{/each}
 
 	{#each simulation.detectors as detector, i}
-	<Detector bind:detector={detector} stats={simulation.stats} i={i} on:move={simulation.generate_beams(0.01, width, height)}/>
+	<Detector bind:detector={detector} stats={simulation.stats} i={i} on:move={simulation.generate_beams(0.005, width, height)}/>
 	{/each}
 
 	{#if $show_beams}
