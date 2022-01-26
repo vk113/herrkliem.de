@@ -168,8 +168,4 @@
 		<Beam {beam}/>
 		{/each}
 	{/if}
-	<div class="absolute bottom-0 left-0 bg-gray-200">
-		{simulation.beams.length}
-
-	</div>
 </div>
