@@ -42,7 +42,7 @@ export class Particle {
         } )
         if(trapped){return trapped}
         if(!alive){return false};
-        if (this.x > 0 && this.x < width && this.y < height && this.y > 0){
+        if (this.x > 5 && this.x < width-5 && this.y < height-5 && this.y > 0+5){
             return true;
         }
         
@@ -196,7 +196,6 @@ export class Simulation {
             sim.detectors.forEach((d) => d.count = 0);
             this.beams.forEach((beam, j) => {
                 let count = 0;
-                console.log(j)
                 let alive = true;
                 beam.p = Object.create(beam.startp);
                 beam.nodes = []

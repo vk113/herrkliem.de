@@ -83,9 +83,6 @@
 		if (simulation.screens.length == 0){
 			simulation.screens.push(new ph.Screen(200, 200, 30, 500))
 		}
-		else{
-			console.log(simulation.screens)
-		}
 	}
 
 	function add_slit(){
@@ -105,10 +102,18 @@
 		simulation.stats = []
 	}
 
+	function move_source(){
+		simulation.beams.forEach(b => {
+			b.startp.x = simulation.source.l + simulation.source.w,
+			b.startp.y = simulation.source.t + simulation.source.h/2;
+            })
+		simulation.generate_beams(0.01, width, height);
+	}
+
 </script>
 
 <svelte:window bind:innerHeight={height} bind:innerWidth={width}></svelte:window>
-<div class="select-none">
+<div class="select-none overflow-hidden">
 	<Grid/>
 	<Menu  
 		bind:running
@@ -122,7 +127,7 @@
 		bind:speed={simulation.speed} bind:density={simulation.density}/>
 	<Settings bind:simulation />
 	<div class="absolute bg-gray-300 shadow-sm">
-		<Source bind:l={simulation.source.l} bind:t={simulation.source.t} w={simulation.source.w} h={simulation.source.h}/>
+		<Source bind:l={simulation.source.l} bind:t={simulation.source.t} w={simulation.source.w} h={simulation.source.h} on:move={move_source}/>
 	</div>
 	{#each simulation.particles as particle}
 
@@ -157,7 +162,6 @@
 	{/each}
 
 	{#if $show_beams}
-		{console.log(simulation.beams)}
 		{#each simulation.beams as beam}
 		<Beam {beam}/>
 		{/each}

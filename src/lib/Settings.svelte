@@ -3,10 +3,16 @@
     export let simulation;
 </script>
 
-<style>
+<style lang="postcss">
     .h3{
-        @apply text-lg font-light;
+        @apply text-lg font-bold;
     }
+
+    hr {
+        @apply border border-gray-700 -mx-4 my-2;
+
+    }
+
 </style>
 <div>
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +44,7 @@
         </button>
 
     {/each}
-    <hr class="border border-gray-700 -mx-4 my-2">
+    <hr/>
     <h3 class="h3 text-green-500">
         Elektrische Felder
     </h3>
@@ -60,5 +66,74 @@
         </button>
 
     {/each}
+    {#if simulation.slits.length}
+    <hr/>
+    <h3 class="h3">
+        Blenden
+    </h3>
+    {/if}
+    {#each simulation.slits as slit, i}
+    <div class="flex flex-row justify-between">
+
+        <div>
+            <span>
+                Blende<sub>{i+1}</sub>
+            </span>
+        </div>
+        <button class="text-red-500" on:click={() => simulation.slits.splice(i, 1)}>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+        </button>
+    </div>
+
+    {/each}
+
+    {#if simulation.screens.length}
+    <hr/>
+    <h3 class="h3">
+        Schirm
+    </h3>
+    {/if}
+    {#each simulation.screens as screen, i}
+    <div class="flex flex-row justify-between">
+
+        <div>
+            <span>
+                Schirm<sub>{i+1}</sub>
+            </span>
+        </div>
+        <button class="text-red-500" on:click={() => simulation.screens.splice(i, 1)}>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+        </button>
+    </div>
+
+    {/each}
+
+    {#if simulation.detectors.length}
+    <hr/>
+    <h3 class="h3">
+        Detektoren
+    </h3>
+    {/if}
+    {#each simulation.detectors as detector, i}
+    <div class="flex flex-row justify-between">
+
+        <div>
+            <span>
+                Detektor<sub>{i+1}</sub>
+            </span>
+        </div>
+        <button class="text-red-500" on:click={() => simulation.detectors.splice(i, 1)}>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+        </button>
+    </div>
+
+    {/each}
+
 
 </div>
