@@ -8,6 +8,7 @@
 	import Slit from '$lib/Slit.svelte';
 	import Screen from '$lib/Screen.svelte';
 	import Settings from '$lib/Settings.svelte';
+	import Beam from '$lib/Beam.svelte';
 	import * as ph from '$lib/physic.js';
 	import { onMount } from 'svelte';
 	
@@ -20,11 +21,14 @@
 	let simulation = new ph.Simulation(
 		new ph.Source(100, 500),
 		[],
-		[new ph.EField(100, 100, 200, 200, {x: 0, y: 1})],
+		[new ph.EField(100, 100, 200, 200, {x: 0, y: 350000})],
 		[new ph.BField(100, 100, 200, 200, .5)],
 	);
 
+
 	onMount(() => {
+		simulation.beams.push(new ph.Beam(simulation.random_particle()));
+		
 		let frame;
 		let time = Date.now();
 		let dt = 0;
@@ -47,6 +51,7 @@
 			}
 			simulation.particles = simulation.particles;
 			simulation.stats = simulation.stats;
+			simulation.beams = simulation.beams;
 
 		}
 
@@ -77,6 +82,7 @@
 			simulation.slits.push(new ph.Slit(200, 200, 25, 500, 5))
 		}
 	}
+
 </script>
 
 <svelte:window bind:innerHeight={height} bind:innerWidth={width}></svelte:window>
@@ -115,7 +121,14 @@
 	<Screen bind:screen={screen} stats={simulation.stats}/>
 	{/each}
 
+	{#each simulation.beams as beam}
+	<Beam {beam}/>
+	{/each}
 	<div class="absolute left-0 bottom-0 bg-gray-900 z-10 text-gray-200">
-		Particles: {simulation.particles.length}
+		Particles: {simulation.particles.length} <br/>
+		Beam: {simulation.beams[0]?simulation.beams[0].nodes.length:""}
+		<button class="text-red-500" on:click={() => simulation.generate_beams(0.01, width, height)}>
+			generate beam
+		</button>
 	</div>
 </div>

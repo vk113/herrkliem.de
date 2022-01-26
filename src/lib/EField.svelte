@@ -7,7 +7,7 @@
     export let i;
     let max_density = 30; //minimum distance betwween two arrows
     $: direction_down = e_field.E.y > 0; 
-    $: n_of_arrows = Math.floor(e_field.w/max_density*Math.abs(Math.min(e_field.E.y, $E_max))/$E_max);
+    $: n_of_arrows = Math.max(2, Math.floor(e_field.w/max_density*Math.abs(Math.min(e_field.E.y, $E_max))/$E_max));
     $: arrows = [...Array(n_of_arrows).keys()].map(i => e_field.w/(n_of_arrows+1)*(i+1/2));
 </script>
 

@@ -72,6 +72,15 @@ export class Field {
     }
 }
 
+export class Beam {
+    constructor(p){
+        this.startp = Object.create(p);
+        this.p = Object.create(p);
+        this.moving_p = p;
+        this.nodes = [];
+        this.l = 0;
+    }
+}
 export class BField extends Field{
     constructor(l, t, w, h, B){
         super(l, t, w, h);
@@ -115,7 +124,7 @@ export class Screen {
 }
 
 export class Simulation {
-    constructor(source, particles, e_fields, b_fields, slits = [], screens=[]){
+    constructor(source, particles, e_fields, b_fields, slits = [], screens=[], beams = []){
         this.source = source;
         this.particles = particles;
         this.e_fields = e_fields;
@@ -126,6 +135,7 @@ export class Simulation {
         this.density = 20;
         this.trapped = [];
         this.stats = [];
+        this.beams = beams;
     }
 
     random_particle(vx_min=2.5*10**5, vx_max=2.5*10**5, vy_min=0, vy_max=0, m=[12*u, 14*u]){
@@ -161,5 +171,33 @@ export class Simulation {
                 o.splice(i, 1);
             }
         })
+        
+    }
+
+    generate_beams(dt, width, height){
+        let count = 0;
+        let sim = this;
+        this.beams.forEach((beam) => {
+            beam.p = Object.create(beam.startp);
+            beam.nodes = []
+            beam.nodes.push({x: beam.p.x, y: beam.p.y})
+            function step(){
+                count += 1;
+                let status = beam.p.update(dt*10e-8, sim.e_fields, sim.b_fields, sim.slits, sim.screens, width, height);
+                beam.nodes.push({x: beam.p.x, y: beam.p.y})
+                if(typeof status === "number"){
+                    return null; // hier weiterleiten zum Detektor
+                }
+                if(status == false){
+                    return null;
+                }
+                if (count == 1000){
+                    return null;
+                }
+                step();
+                }
+            step();
+        })
+        
     }
 }
