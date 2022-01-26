@@ -7,11 +7,16 @@
 	export let w_constant = false;
 	export let in_front = true;
 	export let expended;
+	import {createEventDispatcher} from 'svelte';
+	import { show_beams } from "./settings";
+
 
 	let resize = false;
 
     let moving = false;
 	
+	const dispatch = createEventDispatcher()
+
 	function onMouseDown() {
 		moving = true;
 	}
@@ -32,6 +37,8 @@
 	function onMouseUp() {
 		moving = false;
 		resize = false;
+		dispatch('move');
+
 	}
 
 	function onMouseResize(){

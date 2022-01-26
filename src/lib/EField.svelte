@@ -1,5 +1,5 @@
 <script>
-    import {e_in_front, E_min, E_max, E_step} from '$lib/settings.js';
+    import {E_min, E_max, E_step} from '$lib/settings.js';
     import Movable from '$lib/Movable.svelte';
     import SettingsBlock from '$lib/SettingsBlock.svelte';
     import SettingsItem from '$lib/SettingsItem.svelte';
@@ -12,7 +12,7 @@
 </script>
 
 
-<Movable bind:t={e_field.t} bind:l={e_field.l} bind:w={e_field.w} bind:h={e_field.h} resizable in_front={$e_in_front}>
+<Movable bind:t={e_field.t} bind:l={e_field.l} bind:w={e_field.w} bind:h={e_field.h} resizable  on:move>
     <div slot="settings">
         <SettingsBlock >
             <SettingsItem bind:value={e_field.E.y} name={"E"} unit="V/m" min={$E_min} max={$E_max} step={$E_step}>

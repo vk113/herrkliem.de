@@ -12,7 +12,7 @@ export class Particle {
         this.color = color;
     }
 
-    update(dt, e_fields=[], b_fields=[], slits, screens, width, height){
+    update(dt, e_fields=[], b_fields=[], slits, screens, detectors, width, height){
         let a = this.a(e_fields, b_fields);
         let alive = true;
         let trapped = false;
@@ -35,6 +35,11 @@ export class Particle {
                 trapped = Number(S.t+S.h-this.y);
             }
         })
+        detectors.forEach((D, i) => {
+            if (D.l < this.x && this.x < D.l + D.w && D.t < this.y && this.y < D.t + D.h){
+                trapped = ["detector", i];
+            }
+        } )
         if(trapped){return trapped}
         if(!alive){return false};
         if (this.x > 0 && this.x < width && this.y < height && this.y > 0){
@@ -73,7 +78,8 @@ export class Field {
 }
 
 export class Beam {
-    constructor(p){
+    constructor(p, intensity = 5){
+        this.intensity = intensity
         this.startp = Object.create(p);
         this.p = Object.create(p);
         this.moving_p = p;
@@ -123,8 +129,18 @@ export class Screen {
     }
 }
 
+export class Detector {
+    constructor(l, t, w, h){
+        this.l = l; 
+        this.t = t; 
+        this.w = w;
+        this.h = h;
+        this.count = 0;
+    }
+}
+
 export class Simulation {
-    constructor(source, particles, e_fields, b_fields, slits = [], screens=[], beams = []){
+    constructor(source, particles, e_fields, b_fields, slits = [], screens=[], beams = [], detectors = []){
         this.source = source;
         this.particles = particles;
         this.e_fields = e_fields;
@@ -136,6 +152,7 @@ export class Simulation {
         this.trapped = [];
         this.stats = [];
         this.beams = beams;
+        this.detectors = detectors;
     }
 
     random_particle(vx_min=2.5*10**5, vx_max=2.5*10**5, vy_min=0, vy_max=0, m=[12*u, 14*u]){
@@ -161,13 +178,13 @@ export class Simulation {
 
     update(dt, width, height){
         this.particles.forEach((p,i, o) => {
-            let status = p.update(dt*this.speed, this.e_fields, this.b_fields, this.slits, this.screens, width, height);
+            let status = p.update(dt*this.speed, this.e_fields, this.b_fields, this.slits, this.screens, this.detectors, width, height);
             if(typeof status === "number"){
                 this.trapped.push(o[i])
                 this.stats.push(status);
                 o.splice(i, 1);
             }
-            if(status == false){
+            if(status == false || typeof status === "object"){
                 o.splice(i, 1);
             }
         })
@@ -175,29 +192,43 @@ export class Simulation {
     }
 
     generate_beams(dt, width, height){
-        let count = 0;
-        let sim = this;
-        this.beams.forEach((beam) => {
-            beam.p = Object.create(beam.startp);
-            beam.nodes = []
-            beam.nodes.push({x: beam.p.x, y: beam.p.y})
-            function step(){
-                count += 1;
-                let status = beam.p.update(dt*10e-8, sim.e_fields, sim.b_fields, sim.slits, sim.screens, width, height);
+            let sim = this;
+            sim.detectors.forEach((d) => d.count = 0);
+            this.beams.forEach((beam, j) => {
+                let count = 0;
+                console.log(j)
+                let alive = true;
+                beam.p = Object.create(beam.startp);
+                beam.nodes = []
                 beam.nodes.push({x: beam.p.x, y: beam.p.y})
-                if(typeof status === "number"){
-                    return null; // hier weiterleiten zum Detektor
-                }
-                if(status == false){
-                    return null;
-                }
-                if (count == 1000){
-                    return null;
+                function step(){
+                    count += 1;
+                    let status = beam.p.update(dt*10e-8, sim.e_fields, sim.b_fields, sim.slits, sim.screens, sim.detectors, width, height);
+                    beam.nodes.push({x: beam.p.x, y: beam.p.y})
+                    if(typeof status === "number"){
+                        alive=false; // hier weiterleiten zum Detektor
+                    }
+                    if(status == false){
+                        alive=false;
+                    }
+                    if (count == 2000){
+                        alive=false;
+                    }
+                    if(typeof status === "object"){
+                        if(status[0] == "detector"){
+                            sim.detectors[Number(status[1])].count += beam.intensity;
+                            alive = false;
+                        }
+                    }
+                    if(alive){
+                        step();
+                    }
+                    else {
+                        return false;
+                    }
                 }
                 step();
-                }
-            step();
-        })
-        
+            })
+            
     }
 }

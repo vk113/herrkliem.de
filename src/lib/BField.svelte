@@ -1,5 +1,5 @@
 <script>
-    import {e_in_front, B_max, B_min, B_step} from '$lib/settings.js';
+    import {B_max, B_min, B_step} from '$lib/settings.js';
     import Movable from '$lib/Movable.svelte';
     import SettingsBlock from '$lib/SettingsBlock.svelte';
     import SettingsItem from '$lib/SettingsItem.svelte';
@@ -7,15 +7,15 @@
     export let i;
     let max_density = 50;
     $: direction_down = b_field.B > 0; 
-    $: n_of_circles = Math.floor(b_field.w/max_density*Math.abs(Math.min(b_field.B, $B_max))/$B_max);
-    $: n_of_rows = Math.floor(b_field.h/max_density*Math.abs(Math.min(b_field.B, $B_max))/$B_max);
+    $: n_of_circles = Math.floor(b_field.w/max_density*Math.min(Math.abs(b_field.B), $B_max)/$B_max);
+    $: n_of_rows = Math.floor(b_field.h/max_density*Math.min(Math.abs(b_field.B), $B_max)/$B_max);
     $: rows = Array(n_of_rows)
     $: circles = Array(n_of_circles)
     
 </script>
 
 
-<Movable bind:t={b_field.t} bind:l={b_field.l} bind:w={b_field.w} bind:h={b_field.h} resizable in_front={$e_in_front}>
+<Movable bind:t={b_field.t} bind:l={b_field.l} bind:w={b_field.w} bind:h={b_field.h} resizable on:move>
     <div slot="settings">
         <SettingsBlock>
             <SettingsItem bind:value={b_field.B} name={"B"} min={$B_min} max={$B_max} step={$B_step}/>

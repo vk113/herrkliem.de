@@ -9,9 +9,11 @@
 	import Screen from '$lib/Screen.svelte';
 	import Settings from '$lib/Settings.svelte';
 	import Beam from '$lib/Beam.svelte';
+	import Detector from '$lib/Detector.svelte';
 	import * as ph from '$lib/physic.js';
 	import { onMount } from 'svelte';
-	
+	import { show_beams } from "./settings";
+
 
 	let width = 0;
     let height = 0;
@@ -27,7 +29,16 @@
 
 
 	onMount(() => {
-		simulation.beams.push(new ph.Beam(simulation.random_particle()));
+		simulation.beams = [
+			new ph.Beam(simulation.random_particle()),
+			new ph.Beam(simulation.random_particle()),
+			new ph.Beam(simulation.random_particle()),
+			new ph.Beam(simulation.random_particle()),
+		]
+		
+		
+		
+		
 		
 		let frame;
 		let time = Date.now();
@@ -78,9 +89,20 @@
 	}
 
 	function add_slit(){
-		if (simulation.slits.length == 2){
+		if (simulation.slits.length < 2){
 			simulation.slits.push(new ph.Slit(200, 200, 25, 500, 5))
 		}
+	}
+	function add_detector(){
+		if (simulation.detectors.length < 3){
+			simulation.detectors.push(new ph.Detector(200, 200, 100, 25, 5))
+		}
+	}
+
+	function restart(){
+		simulation.particles = [];
+		simulation.trapped = [];
+		simulation.stats = []
 	}
 
 </script>
@@ -88,8 +110,17 @@
 <svelte:window bind:innerHeight={height} bind:innerWidth={width}></svelte:window>
 <div class="select-none">
 	<Grid/>
-	<Menu  bind:running on:restart={()=>{simulation.particles = [], simulation.trapped = [], simulation.stats = []}} on:add_b_field={add_b_field} on:add_e_field={add_e_field} on:add_slit={add_slit} on:add_screen={add_screen} bind:speed={simulation.speed} bind:density={simulation.density}/>
-	<Settings bind:simulation/>
+	<Menu  
+		bind:running
+		on:restart={restart}
+		on:add_b_field={add_b_field} 
+		on:add_e_field={add_e_field} 
+		on:add_slit={add_slit} 
+		on:add_screen={add_screen} 
+		on:add_detector={add_detector} 
+		on:change={simulation.generate_beams(0.01, width, height)}
+		bind:speed={simulation.speed} bind:density={simulation.density}/>
+	<Settings bind:simulation />
 	<div class="absolute bg-gray-300 shadow-sm">
 		<Source bind:l={simulation.source.l} bind:t={simulation.source.t} w={simulation.source.w} h={simulation.source.h}/>
 	</div>
@@ -105,12 +136,12 @@
 	{/each}
 	{#each simulation.e_fields as e_field, i}
 
-	<EField bind:e_field={e_field} {i}/>
+	<EField bind:e_field={e_field} {i} on:move={simulation.generate_beams(0.01, width, height)}/>
 
 	{/each}
 	{#each simulation.b_fields as b_field, i}
 
-	<BField bind:b_field={b_field} {i}/>
+	<BField bind:b_field={b_field} {i}  on:move={simulation.generate_beams(0.01, width, height)}/>
 
 	{/each}
 	{#each simulation.slits as slit}
@@ -118,17 +149,21 @@
 	{/each}
 
 	{#each simulation.screens as screen}
-	<Screen bind:screen={screen} stats={simulation.stats}/>
+	<Screen bind:screen={screen} stats={simulation.stats} on:move={()=>{restart(); simulation.generate_beams(0.01, width, height)}} />
 	{/each}
 
-	{#each simulation.beams as beam}
-	<Beam {beam}/>
+	{#each simulation.detectors as detector, i}
+	<Detector bind:detector={detector} stats={simulation.stats} i={i} on:move={simulation.generate_beams(0.01, width, height)}/>
 	{/each}
-	<div class="absolute left-0 bottom-0 bg-gray-900 z-10 text-gray-200">
-		Particles: {simulation.particles.length} <br/>
-		Beam: {simulation.beams[0]?simulation.beams[0].nodes.length:""}
-		<button class="text-red-500" on:click={() => simulation.generate_beams(0.01, width, height)}>
-			generate beam
-		</button>
+
+	{#if $show_beams}
+		{console.log(simulation.beams)}
+		{#each simulation.beams as beam}
+		<Beam {beam}/>
+		{/each}
+	{/if}
+	<div class="absolute bottom-0 left-0 bg-gray-200">
+		{simulation.beams.length}
+
 	</div>
 </div>

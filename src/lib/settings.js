@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-export const e_in_front = writable(true);
+export const show_beams = writable(false);
 
 export const B_min = writable(-0.5);
 export const B_max = writable(0.5);

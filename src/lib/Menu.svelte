@@ -1,10 +1,11 @@
 <script>
     import Switch from "$lib/Switch.svelte";
-    import {e_in_front} from "$lib/settings";
     import { createEventDispatcher } from "svelte";
+    import {show_beams} from '$lib/settings';
     export let running;
     export let speed;
     export let density;
+    let checked;
     $: running = running;
 
     const dispatch = createEventDispatcher();
@@ -13,25 +14,18 @@
         dispatch('restart')
     }
 
+
 </script>
 
 <div class="flex justify-evenly align-bottom absolute top-0 left-0 w-full bg-gray-200 p-3 items-center z-10">
-    <!-- <div class="flex flex-col space-y-2">
-        <div class="font-bold text-gray-700">
-            Bearbeiten:
+    <div class="font-bold {$show_beams?"text-green-500":"text-gray-700"}">
+        Bahn einblenden
+    </div>
+    <div class="flex flex-row items-center space-x-4 text-gray-700">
+        <div>
+            <Switch  on:change/>
         </div>
-        <div class="flex flex-row items-center space-x-4 text-gray-700">
-            <div  class="font-bold" class:text-red-500={!$e_in_front}>
-                B-Feld
-            </div>
-            <div>
-                <Switch/>
-            </div>
-            <div class="font-bold" class:text-green-500={$e_in_front}>
-                E-Feld
-            </div>
-        </div>
-    </div> -->
+    </div>
     <button class="text-green-500 flex flex-row items-center space-x-1" on:click={() => {dispatch("add_e_field")}}>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
@@ -53,7 +47,7 @@
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
         </svg>
         <span>
-            Spalt
+            Blende
         </span>
     </button>
     <button class="text-white flex flex-row items-center space-x-1" on:click={() => {dispatch("add_screen")}}>
@@ -62,6 +56,14 @@
         </svg>
         <span>
             Schirm
+        </span>
+    </button>
+    <button class="text-blue-800 flex flex-row items-center space-x-1" on:click={() => {dispatch("add_detector")}}>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+        </svg>
+        <span>
+            Detektor
         </span>
     </button>
 
