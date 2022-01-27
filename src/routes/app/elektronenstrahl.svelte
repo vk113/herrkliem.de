@@ -14,8 +14,8 @@
     $B_min = -0.01;
     $B_max = 0.01;
     $B_step = 0.00001;
-    $E_min = -10000;
-    $E_max = 10000;
+    $E_min = -3000;
+    $E_max = 3000;
     $E_step = 1;
     
 </script>
