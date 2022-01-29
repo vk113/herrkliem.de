@@ -28,8 +28,8 @@
 			}
 			h = Math.max(h+e.movementY, 10);
 		} else if (moving) {
-			l += e.movementX;
-			t += e.movementY;
+			l = e.clientX - w/2;
+			t = e.clientY - h/2;
 		}
 		
 	}
