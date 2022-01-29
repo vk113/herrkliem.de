@@ -15,16 +15,16 @@
         <div style="height:{screen.h}px" class="absolute bg-white top-0 w-full border border-black">
             {#each ticks as tick, i}
                 {#if i%10==0}
-                    <div style="bottom: {tick}px" class="absolute h-0 w-4 border border-black border-1">
+                    <div style="bottom: {tick}px" class="absolute right-0 h-0 w-4 border border-black border-1">
                     </div>
                     <div style="bottom: {tick - 10}px" class="absolute -left-4">
                         {Number(i/10)}
                     </div>
                 {:else if i%5==0}
-                    <div style="bottom: {tick}px" class="absolute h-0 w-3 border border-black border-1">
+                    <div style="bottom: {tick}px" class="absolute right-0 h-0 w-3 border border-black border-1">
                     </div>
                 {:else}
-                    <div style="bottom: {tick}px" class="absolute h-0 w-2 border border-black border-1">
+                    <div style="bottom: {tick}px" class="absolute right-0 h-0 w-2 border border-black border-1">
                     </div>
                 {/if}
 

@@ -17,9 +17,9 @@
 
 </script>
 
-<div class="flex justify-evenly align-bottom absolute top-0 left-0 w-full bg-gray-200 p-3 items-center z-10">
-    <div>
-        <a href="/">
+<div class="flex justify-evenly align-bottom absolute top-0 left-0 w-full bg-gray-200 p-3 items-center z-20">
+    <div class="rounded-full hover:bg-gray-100 p-2 flex items-center">
+        <a href="/" class="">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
@@ -41,7 +41,7 @@
             E-Feld
         </span>
     </button>
-    <button class="text-red-500 flex flex-row items-center space-x-1" on:click={() => {dispatch("add_b_field")}}>
+    <button class="text-orange-500 flex flex-row items-center space-x-1" on:click={() => {dispatch("add_b_field")}}>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
         </svg>
@@ -49,7 +49,7 @@
             B-Feld
         </span>
     </button>
-    <button class="text-blue-800 flex flex-row items-center space-x-1" on:click={() => {dispatch("add_slit")}}>
+    <button class="text-gray-800 flex flex-row items-center space-x-1" on:click={() => {dispatch("add_slit")}}>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
         </svg>
@@ -57,7 +57,7 @@
             Blende
         </span>
     </button>
-    <button class="text-white flex flex-row items-center space-x-1" on:click={() => {dispatch("add_screen")}}>
+    <button class="text-white flex flex-row items-center space-x-1 p-2 rounded-md bg-gray-500" on:click={() => {dispatch("add_screen")}}>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
         </svg>
@@ -65,7 +65,7 @@
             Schirm
         </span>
     </button>
-    <button class="text-blue-800 flex flex-row items-center space-x-1" on:click={() => {dispatch("add_detector")}}>
+    <button class="text-gray-900 bg-yellow-300 p-2 rounded-md flex flex-row items-center space-x-1" on:click={() => {dispatch("add_detector")}}>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
         </svg>
@@ -80,7 +80,7 @@
         <input type="range" bind:value={speed} step={1e-11} min={0} max={1e-9}> 
     </div>
     <div class="flex flex-col items-center space-x-2">
-        <div class="text-xs text-gray-700 font-extrabold tracking-tight uppercase">Teilchendichte</div>
+        <div class="text-xs text-gray-700 font-extrabold tracking-tight uppercase">Intensität</div>
         <input type="range" bind:value={density} min={0} max={50} step={1}>
     </div>
     <div class="flex flex-row space-x-2 items-center">

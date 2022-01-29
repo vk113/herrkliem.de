@@ -48,9 +48,10 @@
 	}
 	
 	function onMouseUp() {
+		dispatch('move');
 		moving = false;
 		resize = false;
-		dispatch('move');
+		
 
 	}
 

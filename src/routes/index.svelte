@@ -13,6 +13,9 @@
         <li>
             <a class="text-blue-500 hover:underline" href="/app/elektronenstrahl">Elektronenstrahl</a>
         </li>
+        <li>
+            <a class="text-blue-500 hover:underline" href="/app/c14">C14-Methode</a> 
+        </li>
     </ul>
 
 </div>

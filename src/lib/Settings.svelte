@@ -2,6 +2,7 @@
     import {E_min, E_max, E_step, B_min, B_max, B_step, show_beams} from '$lib/settings.js';
     export let simulation;
     import { createEventDispatcher } from 'svelte';
+import Detector from './Detector.svelte';
 
     const dispatch = createEventDispatcher();
     
@@ -24,11 +25,11 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
       </svg>
 </div>
-<div class="absolute right-0 top-32 bg-gray-200 text-gray-800 px-6 py-2 z-10">
+<div class="absolute right-0 top-32 bg-gray-200 text-gray-800 px-6 py-2 z-20">
     <h1 class="font-bold text-xl">
         Einstellungen
     </h1>
-    <h3 class="h3 text-red-500">
+    <h3 class="h3 text-orange-500">
         Magnetfelder
     </h3>
     {#each simulation.b_fields as b_field, i}
@@ -119,16 +120,16 @@
 
     {#if simulation.detectors.length}
     <hr/>
-    <h3 class="h3">
-        Detektoren
+    <h3 class="h3 ">
+        <span class="bg-yellow-300">Detektoren</span>
     </h3>
     {/if}
-    {#each simulation.detectors as detector, i}
-    <div class="flex flex-row justify-between">
+    {#each simulation.detectors as detector, i} 
+    <div class="flex-row justify-between flex">
 
         <div>
             <span>
-                Detektor<sub>{i+1}</sub>
+                D<sub>{i+1}</sub>: {detector.pcount()}
             </span>
         </div>
         <button class="text-red-500" on:click={() => simulation.detectors.splice(i, 1)}>
