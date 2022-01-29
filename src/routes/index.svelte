@@ -16,6 +16,9 @@
         <li>
             <a class="text-blue-500 hover:underline" href="/app/c14">C14-Methode</a> 
         </li>
+        <li>
+            <a class="text-blue-500 hover:underline" href="/app/h">Wasserstoffisotope</a> 
+        </li>
     </ul>
 
 </div>

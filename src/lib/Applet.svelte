@@ -175,7 +175,7 @@
 		<Beam {beam}/>
 		{/each}
 	{/if}
-	<div class="absolute left-0 bottom-0 z-90 bg-black text-white">
+	<!-- <div class="absolute left-0 bottom-0 z-90 bg-black text-white">
 		Beams: {simulation.beams.length}
-	</div>
+	</div> -->
 </div>

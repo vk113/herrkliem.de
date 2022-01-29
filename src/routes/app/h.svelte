@@ -7,20 +7,20 @@
     let simulation = new ph.Simulation(
 		new ph.Source(100, 400),
 		[],
-		[new ph.EField(100, 100, 200, 200, {x: 0, y: 100000})],
-		[new ph.BField(300, 100, 200, 200, .5)],
+		[new ph.EField(100, 100, 200, 200, {x: 0, y: 1000})],
+		[new ph.BField(300, 100, 200, 200, .1)],
 	);
 	simulation.colors = ["blue"]
-    simulation.vs = [1*10**5, 1.5*10**5, 2*10**5, 2.5*10**5, 3*10**5];
-    simulation.ms = [12*u, 14*u];
-    simulation.is = [65, 1.2e13];
+    simulation.vs = [1.5*10**5, 1.75*10**5, 2*10**5, 2.25*10**5, 2.5*10**5];
+    simulation.ms = [1.008*u, 2.01*u, 3.016*u];
+    simulation.is = [1, 1, 1];
     simulation.q = q;
-    $B_min = -0.5;
-    $B_max = 0.5;
+    $B_min = -0.2;
+    $B_max = 0.2;
     $B_step = 0.001;
-    $E_min = -100000;
-    $E_max = 100000;
-    $E_step = 100;
+    $E_min = -10000;
+    $E_max = 10000;
+    $E_step = 10;
 </script>
 
 <Applet {simulation}/>

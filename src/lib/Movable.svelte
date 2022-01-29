@@ -15,21 +15,26 @@
 
     let moving = false;
 	
+	let offsetX = 0;
+	let offsetY = 0;
 	const dispatch = createEventDispatcher()
 
-	function onMouseDown() {
+	function onMouseDown(e) {
 		moving = true;
+		offsetX = e.offsetX;
+		offsetY = e.offsetY;
+		
 	}
 	
 	function onMouseMove(e) {
 		if (resize) {
 			if(!w_constant){
-				w = Math.max(w+e.movementX, 10);
+				w = Math.max(e.clientX-l, 50);
 			}
-			h = Math.max(h+e.movementY, 10);
+			h = Math.max(e.clientY-t, 50);
 		} else if (moving) {
-			l = e.clientX - w/2;
-			t = e.clientY - h/2;
+			l = e.clientX - offsetX;
+			t = e.clientY - offsetY;
 		}
 		
 	}
