@@ -13,7 +13,7 @@
 	simulation.colors = ["blue"]
     simulation.vs = [1*10**5, 1.5*10**5, 2*10**5, 2.5*10**5, 3*10**5];
     simulation.ms = [12*u, 14*u];
-    simulation.is = [65, 1.2e13];
+    simulation.is = [1.2e14, 62];
     simulation.q = q;
     $B_min = -0.5;
     $B_max = 0.5;
