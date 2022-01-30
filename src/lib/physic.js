@@ -1,6 +1,6 @@
 const u = 1.66054*10**(-27)
 const q = 1.602*10**(-19)
-const scale = 2000;
+const scale = 4000;
 export class Particle {
     constructor(x, y, vx, vy, m, q=-1, color){
         this.x = x;
