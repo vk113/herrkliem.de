@@ -14,6 +14,7 @@
 	import { onMount } from 'svelte';
 	import { show_beams } from "./settings";
 
+	export let running = true;
 	export let simulation = new ph.Simulation(
 		new ph.Source(100, 500),
 		[],
@@ -24,7 +25,6 @@
 
 	let width = 0;
     let height = 0;
-	let running = true;
 
 
 
@@ -74,7 +74,7 @@
 	});
 
 	function add_e_field(){
-		simulation.e_fields.push(new ph.EField(100, 100, 200, 200, {x: 0, y: 1}))
+		simulation.e_fields.push(new ph.EField(100, 100, 200, 200, {x: 0, y: 1000}))
 	}
 
 	function add_b_field(){

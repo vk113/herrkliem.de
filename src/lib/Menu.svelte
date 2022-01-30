@@ -5,7 +5,6 @@
     export let running;
     export let speed;
     export let density;
-    let checked;
     $: running = running;
 
     const dispatch = createEventDispatcher();

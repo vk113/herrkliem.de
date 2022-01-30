@@ -2,7 +2,6 @@
     import {E_min, E_max, E_step, B_min, B_max, B_step, show_beams} from '$lib/settings.js';
     export let simulation;
     import { createEventDispatcher } from 'svelte';
-import Detector from './Detector.svelte';
 
     const dispatch = createEventDispatcher();
     
