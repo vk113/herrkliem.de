@@ -24,4 +24,4 @@
     $show_beams = false;
 </script>
 
-<Applet {simulation}/>
+<Applet {simulation} name={"<sup>14</sup>C<sup>+</sup>- und <sup>12</sup>C<sup>+</sup>- Ionen von <i>Ötzi</i>"}/>

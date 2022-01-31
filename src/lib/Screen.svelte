@@ -12,6 +12,7 @@
 </script>
 <Movable bind:l={screen.l} bind:t={screen.t} w={screen.w} bind:h={screen.h} resizable w_constant on:move>
     <div slot="content">
+        
         <div style="height:{screen.h}px" class="absolute bg-white top-0 w-full border border-black">
             {#each ticks as tick, i}
                 {#if i%10==0}
@@ -30,6 +31,9 @@
 
 
             {/each}
+        </div>
+        <div class="absolute bottom-10 text-black z-10 -rotate-90 w-12 -left-4">
+            in cm
         </div>
     </div>
 </Movable>

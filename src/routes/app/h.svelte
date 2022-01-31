@@ -23,4 +23,4 @@
     $E_step = 10;
 </script>
 
-<Applet {simulation}/>
+<Applet {simulation} name={"Wasserstoffisotope"}/>

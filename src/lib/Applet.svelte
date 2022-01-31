@@ -14,6 +14,7 @@
 	import { onMount } from 'svelte';
 	import { show_beams } from "./settings";
 
+	export let name = "";
 	export let running = true;
 	export let simulation = new ph.Simulation(
 		new ph.Source(100, 500),
@@ -136,7 +137,7 @@
 		bind:speed={simulation.speed} bind:density={simulation.density}/>
 	<Settings bind:simulation on:input={update_beams} />
 	<div class="absolute bg-gray-300 shadow-sm">
-		<Source bind:l={simulation.source.l} bind:t={simulation.source.t} w={simulation.source.w} h={simulation.source.h} on:move={move_source}/>
+		<Source bind:l={simulation.source.l} bind:t={simulation.source.t} w={simulation.source.w} h={simulation.source.h} on:move={move_source} name={name}/>
 	</div>
 	{#each simulation.particles as particle}
 

@@ -106,7 +106,7 @@ export class Source {
     constructor(l, t){
         this.l = l;
         this.t = t;
-        this.w = 50;
+        this.w = 90;
         this.h = 50;
     }
 }
