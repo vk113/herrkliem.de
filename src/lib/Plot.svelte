@@ -34,7 +34,11 @@
                 </div>
             </div>
         </div>
+      
         <div class="chart h-full w-full overflow-hidden">
+          <div class="absolute m-1 text-lg z-50 p-1">
+            {@html katex.renderToString('A(h) = \\frac{1}{2\\cdot\\left(1+\\frac{r_e}{h}\\right)}')}
+          </div>
             <Pancake.Chart x1={0} x2={x_max} y1={0.5-y_zoom/2} y2={0.5+y_zoom/2}>
                 <Pancake.Grid vertical count={10} let:value>
                     <div class="grid-line vertical"></div>
@@ -45,19 +49,19 @@
                     <span class="y label">{value}</span>
                 </Pancake.Grid>
                 <Pancake.Svg>
-                  {#if step >= 3}
+                  {#if step >= 4}
                   <Pancake.SvgLine data={interval} let:d >
-                    <path class="stroke-green-500 fill-green-500 opacity-30"  d={d + "z"} />
+                    <path class="stroke-red-500 fill-red-300 opacity-30"  d={d + "z"} />
                 </Pancake.SvgLine>
                 {/if}
                     
-                    {#if step >= 2}
+                    {#if step >= 3}
 
                     <Pancake.SvgLine data={limit} let:d>
                       <path class="data stroke-green-600 stroke-2" {d}/>
                   </Pancake.SvgLine>
                   {/if}
-                  {#if step >= 4}
+                  {#if step >= 5}
                     <Pancake.SvgLine data={delta_path} let:d>
                       <path class="data stroke-blue-700" {d}/>
                     </Pancake.SvgLine>
@@ -65,12 +69,13 @@
                       <path class="fill-blue-300 opacity-20" {d}/>
                     </Pancake.SvgLine>
                   {/if}
+                  {#if step >= 2}
                   <Pancake.SvgLine data={points} let:d>
-                    <path class="data stroke-red-500 stroke-[3px]" {d}/>
-                </Pancake.SvgLine>
-                  
+                    <path class="data stroke-black stroke-[3px]" {d}/>
+                </Pancake.SvgLine>                  
+                {/if}
                     <Pancake.SvgPoint x={h*RADIUS} y={func(h*RADIUS)} let:d>
-                        <path class="data stroke-[10px] stroke-red-500" d={d} />
+                        <path class="data stroke-[10px] stroke-black" d={d} />
                     </Pancake.SvgPoint>
                     
                 </Pancake.Svg>

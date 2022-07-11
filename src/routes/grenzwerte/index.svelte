@@ -41,8 +41,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
   </svelte:head>
 
-    <div class="grid grid-cols-5">
-        <div class="col-span-4 border-l-2 border border-white w-full">
+    <div class="grid grid-cols-10">
+        <div class="col-span-8 border-l-2 border border-white w-full">
             <div class="container">
                 <div class="absolute z-50 bg-black m-2 text-white text-xl">
                     Blick auf die Erde
@@ -50,7 +50,7 @@
                 <EarthView bind:h fov={fov} {r}/>
             </div>
         </div>
-        <div class="col-span-1">
+        <div class="col-span-2">
             <div class="container">
                 <div class="absolute z-50 bg-black m-2 text-white text-xl">
                     Position der Raumstation
@@ -60,7 +60,7 @@
                 <TotalView bind:h {r}/>
             </div>
         </div>
-        <div class="col-span-1 p-3 pr-0 h-[40vh]">
+        <div class="col-span-3 p-3 pr-0 h-[40vh]">
             <div class="card flex flex-col justify-evenly">
 
                 <div class="flex flex-col space-y-2 ">
@@ -79,7 +79,7 @@
                 </div>
                 {#if step >= 1}
                     
-                    {#if step >= 2}
+                    {#if step >= 3}
 
                     <div class="flex flex-col space-y-2">
                         <label for="lim">
@@ -92,12 +92,12 @@
                             <input id="lim" type="range" min={0} max={1} step={0.01} bind:value={lim}>
                     </div>
                     {/if}
-                    {#if step >= 3}
+                    {#if step >= 4}
 
                     <div class="flex flex-col space-y-2">
-                        <label for="intervall" class="text-green-700">
+                        <label for="intervall" class="text-black-700 bg-red-300">
                             <span class="text-lg font-bold">
-                                Intervall:
+                                Abstand zum Grenzwert:
                             </span>
                         </label>
                             <input id="intervall" type="range" min={0.001} max={0.1} step={0.00001} bind:value={intervall_size}>
@@ -120,7 +120,7 @@
             </div>
         </div>
         {#if step >= 1}
-        <div class="col-span-4 p-3 h-[40vh]" >
+        <div class="col-span-7 p-3 h-[40vh]" >
             <div class="card">
                 <Plot {h} {x_max} {intervall_size} {lim} {step}/>
             </div>

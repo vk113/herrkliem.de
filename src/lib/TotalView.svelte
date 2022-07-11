@@ -1,4 +1,4 @@
-<script>
+$<script>
 	import * as THREE from 'three';
 	import * as SC from 'svelte-cubed';
     import image from '$lib/earth.jpg';
