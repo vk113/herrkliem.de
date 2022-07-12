@@ -68,7 +68,7 @@
                         <span class="text-lg font-bold">
                             Höhe:
                         </span>
-                        h = {Math.round(h*RADIUS)} km</label>
+                        x = {Math.round(h*RADIUS)} km</label>
                         <input id="h" type="range" min={0} max={20} step={0.01} bind:value={h}>
                 </div>
                 
@@ -84,8 +84,9 @@
                     <div class="flex flex-col space-y-2">
                         <label for="lim">
                             <span class="text-lg font-bold text-green-800">
-                                Grenzwert
+                                Asymptote
                             </span>
+                            y =
                             <input type="number" step={0.01} bind:value={lim} class="w-24 border border-gray-400 rounded-md p-1">
                             <!-- {@html katex.renderToString('\\lim \\limits_{x\\rightarrow \\infty} A(h)')} -->
                         </label>

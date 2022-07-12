@@ -36,17 +36,17 @@
         </div>
       
         <div class="chart h-full w-full overflow-hidden">
-          <div class="absolute m-1 text-lg z-50 p-1">
-            {@html katex.renderToString('A(h) = \\frac{1}{2\\cdot\\left(1+\\frac{r_e}{h}\\right)}')}
+          <div class="absolute m-1 text-3xl z-50 p-1">
+            {@html katex.renderToString('f(x) = \\frac{x}{2\\cdot\\left(r_e+x\\right)}')}
           </div>
             <Pancake.Chart x1={0} x2={x_max} y1={0.5-y_zoom/2} y2={0.5+y_zoom/2}>
                 <Pancake.Grid vertical count={10} let:value>
                     <div class="grid-line vertical"></div>
-                    <span class="x label">{value}</span>
+                    <span class="x label text-lg">{value}</span>
                 </Pancake.Grid>
                 <Pancake.Grid horizontal count={5} let:value>
                     <div class="grid-line horizontal"></div>
-                    <span class="y label">{value}</span>
+                    <span class="y label text-lg">{value}</span>
                 </Pancake.Grid>
                 <Pancake.Svg>
                   {#if step >= 4}
@@ -85,7 +85,7 @@
         </div>
     </div>
     <div class="w-full  text-center ">
-        <div>Entfernung {@html katex.renderToString('h')} in {@html katex.renderToString('km')}</div>
+        <div>Entfernung {@html katex.renderToString('x')} in {@html katex.renderToString('km')}</div>
         <input id="x_max" type="range"min={20000} max={2000000} step={0.1} bind:value={x_max}>
 
     </div>
