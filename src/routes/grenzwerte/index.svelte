@@ -69,7 +69,7 @@
                             Höhe:
                         </span>
                         x = {Math.round(h*RADIUS)} km</label>
-                        <input id="h" type="range" min={0} max={20} step={0.01} bind:value={h}>
+                        <input id="h" type="range" min={0.1} max={20} step={0.01} bind:value={h}>
                 </div>
                 
 
@@ -88,7 +88,6 @@
                             </span>
                             y =
                             <input type="number" step={0.01} bind:value={lim} class="w-24 border border-gray-400 rounded-md p-1">
-                            <!-- {@html katex.renderToString('\\lim \\limits_{x\\rightarrow \\infty} A(h)')} -->
                         </label>
                             <input id="lim" type="range" min={0} max={1} step={0.01} bind:value={lim}>
                     </div>
@@ -96,12 +95,13 @@
                     {#if step >= 4}
 
                     <div class="flex flex-col space-y-2">
-                        <label for="intervall" class="text-black-700 bg-red-300">
-                            <span class="text-lg font-bold">
+                        <label for="intervall" class="text-black-700">
+                            <span class="text-lg font-bold text-red-500">
                                 Abstand zum Grenzwert:
                             </span>
+                            <input type="number" step={0.01} bind:value={intervall_size} class="w-24 border border-gray-400 rounded-md p-1">
                         </label>
-                            <input id="intervall" type="range" min={0.001} max={0.1} step={0.00001} bind:value={intervall_size}>
+                            <input id="intervall" type="range" min={0.001} max={0.2} step={0.001} bind:value={intervall_size}>
                     </div>
                     {/if}
                 {/if}
