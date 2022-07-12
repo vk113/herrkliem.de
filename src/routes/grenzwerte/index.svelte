@@ -43,24 +43,42 @@
 
     <div class="grid grid-cols-10">
         <div class="col-span-8 border-l-2 border border-white w-full">
-            <div class="container">
+            {#if step<2}
+            <div class="relative h-[60vh]">
                 <div class="absolute z-50 bg-black m-2 text-white text-xl">
                     Blick auf die Erde
                 </div>
                 <EarthView bind:h fov={fov} {r}/>
             </div>
+            {:else}
+            <div class="relative h-[40vh]">
+                <div class="absolute z-50 bg-black m-2 text-white text-xl">
+                    Blick auf die Erde
+                </div>
+                <EarthView bind:h fov={fov} {r}/>
+            </div>
+            {/if}
         </div>
         <div class="col-span-2">
-            <div class="container">
+            {#if step<2}
+            <div class="relative h-[60vh]">
                 <div class="absolute z-50 bg-black m-2 text-white text-xl">
                     Position der Raumstation
                 </div>
-
+            
 
                 <TotalView bind:h {r}/>
             </div>
+            {:else}
+            <div class="relative h-[40vh]">
+                <div class="absolute z-50 bg-black m-2 text-white text-xl">
+                    Position der Raumstation
+                </div>
+                <TotalView bind:h {r}/>
+            </div>
+            {/if}
         </div>
-        <div class="col-span-3 p-3 pr-0 h-[40vh]">
+        <div class="col-span-3 p-3 pr-0 {step<2?"h-[40vh]":"h-[60vh]"}">
             <div class="card flex flex-col justify-evenly">
 
                 <div class="flex flex-col space-y-2 ">
@@ -121,7 +139,7 @@
             </div>
         </div>
         {#if step >= 1}
-        <div class="col-span-7 p-3 h-[40vh]" >
+        <div class="col-span-7 p-3 {step<2?"h-[40vh]":"h-[60vh]"} " >
             <div class="card">
                 <Plot {h} {x_max} {intervall_size} {lim} {step}/>
             </div>
@@ -131,10 +149,6 @@
 
         
 <style lang="postcss">
-    .container{
-        position: relative;
-        height: 60vh;        
-    }
     
     .card{
         @apply p-3 shadow-lg rounded-lg border border-gray-300 h-full overflow-hidden;
