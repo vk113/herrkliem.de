@@ -35,6 +35,7 @@
     "svelte-chartjs": "^1.1.4",
     "svelte-cubed": "^0.2.1",
     "svelte-knobby": "^0.3.4",
+    "svelte-migrate": "^1.0.0-next.13",
     "three": "^0.142.0"
   }
 }
