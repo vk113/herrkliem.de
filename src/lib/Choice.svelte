@@ -4,11 +4,11 @@
     export let choices = [
         {
             text: "Simulieren",
-            href: "/simulationen/ziegenproblem/simulation"
+            href: "/simulationen/ziegenproblem/simulieren"
         },
         {
             text: "Berechnen",
-            href: "/simulationen/ziegenproblem/berechnung"
+            href: "/simulationen/ziegenproblem/berechnen"
         }
     ]
 </script>

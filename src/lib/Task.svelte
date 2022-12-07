@@ -26,7 +26,7 @@
     {color=='pink'?'text-pink-700':''}
     {color=='purple'?'text-purple-800':''}
     {color=='teal'?'text-teal-800':''}
-    ">{`${i?bonus?"Bonusaufgabe "+i + ": ":"Aufgabe "+i + ": ":""} ${title?title:""}`}</h3>
+    ">{@html `${i?bonus?"Bonusaufgabe "+i + ": ":"Aufgabe "+i + ": ":""} ${title?title:""}`}</h3>
     <article class="text-gray-900">
         <slot/>
     </article>

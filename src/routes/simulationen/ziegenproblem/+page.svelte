@@ -171,12 +171,4 @@
     th{
         @apply border-black border p-1;
     }
-    .excel-list a{
-        @apply text-blue-600;
-    }
-
-    .excel-list a:hover{
-        @apply underline;
-    }
-    
 </style>
