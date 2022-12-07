@@ -98,8 +98,8 @@
         </Task>
         <Task i=2 title="Simulation planen">
             <b>Wie kann  dieses Problem mithilfe eines Tabellenkalkulationsprogramms simuliert werden?</b> <br/>
-            Gliedert dazu die Simulation in einzelne Teilschritte. Formuliert jedes Teilschritte und notiert Excelfunktionen, die für diesen Schritt hilfreich sind.
-            <Help title="Liste mit (verlinkten) Excelfunktionen" isOpen>
+            Gliedert dazu die Simulation in einzelne Teilschritte. Formuliert jeden Teilschritt und notiert Excelfunktionen, die für diesen Schritt hilfreich sind.
+            <Help title="Liste mit (verlinkten) Excelfunktionen" >
                 <p class="excel-list">
                     <a href="https://support.microsoft.com/de-de/office/zählenwenn-funktion-e0de10c6-f885-4e71-abb4-1f464816df34">ZÄHLENWENN</a>,
                     <a href="https://support.microsoft.com/de-de/office/zufallsbereich-funktion-4cc7f0d1-87dc-4eb7-987f-a469ab381685">ZUFALLSBEREICH</a>,
@@ -110,12 +110,57 @@
             </Help>
         </Task>
         <Task i=3 title="Gruppe splitten">
-            Teilt eure Gruppe auf! Eine Teilgruppe wird für die Simulation in Excel hauptverantwortlich sein. Die zweite Teilgruppe berechnet mithilfe der im Unterricht erlernten Methoden die Wahrscheinlichkeit der jeweiligen Strategien. <br/>
-            Je nach Gruppe geht es jetzt für euch hier weiter: 
+            Teilt eure Gruppe auf. <br/>
+            Eine Teilgruppe wird für die Simulation in Excel hauptverantwortlich sein. Die zweite Teilgruppe berechnet mithilfe der im Unterricht erlernten Methoden die Wahrscheinlichkeit der jeweiligen Strategien. <br/>
+            <b>
+                Je nach Gruppe geht es jetzt für euch hier weiter: 
+            </b>
             
             <Choice/>
 
         </Task>
+        <Task i=7 title="Austausch" id="anchor1">
+            Präsentiert jeweils der anderen Teilgruppe eure Ergebnisse. <br/>
+            <div class="grid grid-cols-2 gap-x-8 mt-2">
+                <div>
+                    <div class="font-bold">Team Berechnen</div>
+                    <ol>
+                        <li>
+                            Präsentiert eure Ergebnisse. Achtet dabei darauf, dass eure Gedankenschritte nachvollziehbar sind und geht auf Rückfragen ein.
+                        </li>
+                        <li>
+                            Baut unter Anleitung des <b>Teams Simulieren</b> die Exceltabelle nach. 
+                        </li>
+                        
+                    </ol>
+                </div>
+                <div>
+                    <div class="font-bold">Team Simulieren</div>
+                    <ol>
+                        <li>
+                            Präsentiert eure Ergebnisse und vergleicht mit den berechneten Wahrscheinlichkeiten.
+                        </li>
+                        <li>
+                            Helft dem <b>Team Berechnen</b> beim Nachbauen der Simulation. (Regel: Finger weg von Maus und Tastatur! 😉)
+                        </li>
+                        
+                    </ol>
+                </div>
+            </div>
+            
+        </Task>
+        <Task i=8 title="Präsentation">
+            Bereitet ein 8-minütiges Referat vor. <br/>
+            <b>Checkliste:</b>
+            <ul class="list-disc ml-10">
+                <li>Einstieg der Interesse am Thema weckt und das Spiel erklärt.</li>
+                <li>Beschreibung der Teilschritte der Simulation</li>
+                <li>Präsentation der Ergebnisse der Simulation</li>
+                <li>Rechnerische Herleitung der Wahrscheinlichkeiten anhand der Baumdiagramme</li>
+                <li>Vergleich der Ergebnisse der Simulation mit der Berechnung</li>
+            </ul>
+        </Task>
+        
 </TaskList>
 
 <style lang="postcss">
@@ -133,7 +178,4 @@
         @apply underline;
     }
     
-    .choice {
-
-    }
 </style>

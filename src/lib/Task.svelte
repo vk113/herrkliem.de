@@ -1,13 +1,15 @@
 <script>
     export let title;
     export let i;
+    export let bonus = false;
+    export let id ="";
     import {getContext} from 'svelte';
 
     let color = getContext("color")
     console.log(color)
 </script>
 
-<div class="card w-full relative group">
+<div class:opacity-80={bonus} class="card w-full relative group" {id}>
     <div class="absolute bg-white h-8 w-8 -left-11 rounded-full border-gray-500 border-4 group-hover:scale-[1.1]  duration-200  
      
     {color=='blue'?'group-hover:bg-blue-200 group-hover:border-blue-800':''}
@@ -24,7 +26,7 @@
     {color=='pink'?'text-pink-700':''}
     {color=='purple'?'text-purple-800':''}
     {color=='teal'?'text-teal-800':''}
-    ">{`${i?"Aufgabe "+i + ": ":""} ${title?title:""}`}</h3>
+    ">{`${i?bonus?"Bonusaufgabe "+i + ": ":"Aufgabe "+i + ": ":""} ${title?title:""}`}</h3>
     <article class="text-gray-900">
         <slot/>
     </article>
