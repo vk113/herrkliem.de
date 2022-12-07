@@ -10,7 +10,7 @@
 </script>
 <Headline back="/simulationen/ziegenproblem#anchor1" src="/ziegenproblem.png" title="Ziegenproblem | Simulation"/>
 <TaskList>
-    <Task i="4B" title="Vereinfachung des Rechenweges">
+    <Task i="3B" title="Vereinfachung des Rechenweges">
         <ol>
             <li>
                 Zunächst wollen wir unseren Rechenweg etwas vereinfachen. Mathematiker*innen benutzen dafür häufig die Formulierung: <cite>o.B.d.A.</cite>. <br/>
@@ -26,7 +26,7 @@
             </Solution>
         </ol>
     </Task>
-    <Task i="5B" title="Baumdiagramm">
+    <Task i="4B" title="Baumdiagramm">
         Zeichnet für jede der beiden Strategien ein vollständig beschriftetes Baumdiagramm. Die Baumdiagramme sollten nach der Vereinfachung aus <b>Aufgabe 4B</b> alle möglichen Spielausgänge beinhaltet.
         <Help title="Was sind die Stufen des Zufallsexperiments">
             Das Zufallsexperiment besteht aus drei Stufen: 
@@ -46,7 +46,7 @@
             Ihr könnt davon ausgehen, dass der Moderator dann mit einer Wahrscheinlichkeit von <Katex eq="50\%"/> je eine der beiden verbliebenen Türen öffnet.
         </Help>
     </Task>
-    <Task i="6B" title="Wahrscheinlichkeit bestimmen">
+    <Task i="5B" title="Wahrscheinlichkeit bestimmen">
         Berechnet nun mithilfe der Baumdiagramme die Wahrscheinlichkeit zu gewinnen.
     </Task>
 

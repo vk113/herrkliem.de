@@ -11,7 +11,7 @@
 
 <Headline back="/simulationen/ziegenproblem#anchor1" src="/ziegenproblem.png" title="Ziegenproblem | Simulation"/>
 <TaskList>
-    <Task i="4A" title="Simulation eines Durchgangs">
+    <Task i="3A" title="Simulation eines Durchgangs">
         Simuliere einen Durchgang mit beiden Strategien. Dabei sollte die Position des Autos als auch die erste Wahl des Kandidatens zufällig sein. Evaluiert jeweils automatisch, ob die Strategie gewinnt. <br/>
         <Help title="Excel Vorlage">
             Du <i>kannst</i> für die Simulation die folgende Excelvorlage verwenden:
@@ -30,7 +30,7 @@
             <Katex eq="\text{'{'}Türnummer 1.Wahl} + \text{'{'}Türnummer Moderator}  + \text{'{'}Türnummer 2.Wahl} =6"/>
         </Help>
     </Task>
-    <Task i="5A" title="Simulation von 1000 Durchgängen">
+    <Task i="4A" title="Simulation von 1000 Durchgängen">
         <ol >
             <li>
                 Führt die Simolation 1000 Mal durch und wertet die Simulation aus, indem ihr zählt, wie oft welche Strategie erfolgreich war.
@@ -44,7 +44,7 @@
         </ol>
     </Task>
 
-    <Task bonus i="6B" title="Gesetz der Großen Zahlen">
+    <Task bonus i="5B" title="Gesetz der Großen Zahlen">
         Führt die Auswertung für 10, 50, 100, 200, 300, 400, ... 1000 Spiele durch. Stellt die Veränderung der relativen Häufigkeit in einem Liniendiagramm dar. 
     </Task>
     

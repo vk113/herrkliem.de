@@ -109,7 +109,7 @@
                 </p>
             </Help>
         </Task>
-        <Task i=3 title="Gruppe splitten">
+        <Task i="3-5" title="In Teilgruppen">
             Teilt eure Gruppe auf. <br/>
             Eine Teilgruppe wird für die Simulation in Excel hauptverantwortlich sein. Die zweite Teilgruppe berechnet mithilfe der im Unterricht erlernten Methoden die Wahrscheinlichkeit der jeweiligen Strategien. <br/>
             <b>
@@ -119,7 +119,8 @@
             <Choice/>
 
         </Task>
-        <Task i=7 title="Austausch" id="anchor1">
+
+        <Task i=6 title="Austausch" id="anchor1">
             Präsentiert jeweils der anderen Teilgruppe eure Ergebnisse. <br/>
             <div class="grid grid-cols-2 gap-x-8 mt-2">
                 <div>
@@ -149,7 +150,7 @@
             </div>
             
         </Task>
-        <Task i=8 title="Präsentation">
+        <Task i=7 title="Präsentation">
             Bereitet ein 8-minütiges Referat vor. <br/>
             <b>Checkliste:</b>
             <ul class="list-disc ml-10">
