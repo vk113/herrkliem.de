@@ -6,6 +6,7 @@
     import Solution from '$lib/Solution.svelte';
     import Help from '$lib/Help.svelte';
     import {setContext} from 'svelte';
+	import ExcelDownload from "$lib/ExcelDownload.svelte";
     setContext("color", "blue")
 </script>
 <Headline back="/simulationen/wichteln#anchor1" src="/vertauschte_briefe.png" title="Wichteln | Berechnen"/>
@@ -13,7 +14,7 @@
     <Task i="3B" title="Anzahl der Kombinationen">
         <ol class="">
             <li>
-                Bestimme die Anzahl der möglichen Kombinationen, die sich beim Ziehen der Wichtelzettel bei fünf Wichteln ergeben.
+                Bestimmt die Anzahl der möglichen Kombinationen, die sich beim Ziehen der Wichtelzettel bei fünf Wichteln ergeben.
                 <Help title="Tipp: Urnenmodell">
                     Überlege dir welches Urnenmodell dem Wichteln entspricht: 
                     <ul class="list-disc ml-10">
@@ -25,7 +26,7 @@
                 </Help>
             </li>
             <li>
-                Stelle eine allgemeine Formel auf, mit der sich berechnen lässt, wie viele Kombinationen es bei <Katex eq="n"/> Wichteln gibt. 
+                Stellt eine allgemeine Formel auf, mit der sich berechnen lässt, wie viele Kombinationen es bei <Katex eq="n"/> Wichteln gibt. 
             </li>
         </ol>
     </Task>
@@ -40,7 +41,9 @@
 
     </Task>
     <Task i="5B" title="Wahrscheinlichkeit bestimmen">
-        Ladet euch die Exceldatei mit allen möglichen Kombinationen herunter und wertet sie aus. Ihr könnt davon ausgehen, dass alle Kombinationen gleich wahrscheinlich sind. Geht dabei folgendermaßen vor: 
+        Ladet euch die Exceldatei mit allen möglichen Kombinationen herunter (oder nutzt eure eigene Tabelle) und wertet sie aus. Ihr könnt davon ausgehen, dass alle Kombinationen gleich wahrscheinlich sind. 
+        <ExcelDownload filename="Liste aller Kombinationen" href="/vorlagen/wichteln_kombinationen.xlsx"/>
+        Geht dabei folgendermaßen vor: 
         <ol>
             <li>Wertet aus bei <span class="underline">wievielen Kombinationen</span> <span class="underline">wieviele Wichtel</span> ihren eigenen Zettel ziehen.</li>
             <li>Stellt die ermittelten Daten in einem geeigneten Diagramm dar.</li>

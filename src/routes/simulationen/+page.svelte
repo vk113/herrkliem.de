@@ -11,3 +11,10 @@
         <DisplayItem src={"/kniffel.png"} label="Kniffel" link="/simulationen/kniffel" color="red"/>
     </div>
 </div>
+<!-- <div class="fixed bottom-0 left-0 right-0 w-full text-white pb-2">
+    <div class="text-center">    
+        <a href="/simulationen/info" class=" mt-2 items-center text-white hover:bg-white hover:bg-opacity-10 p-2 rounded-md duration-100">
+            Info
+        </a>
+    </div>
+</div> -->

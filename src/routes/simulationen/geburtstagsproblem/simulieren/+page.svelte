@@ -16,7 +16,7 @@
         <Help title="Excel Vorlage">
             Du <i>kannst</i> für die Simulation die folgende Excelvorlage verwenden:
             <div class="w-full">
-                <ExcelDownload filename="Vorlage Ziegenproblem" href="/vorlagen/ziegenproblem_vorlage.xlsx"/>
+                <ExcelDownload filename="Vorlage Geburtstagsproblem" href="/vorlagen/geburtstagsproblem_vorlage.xlsx"/>
             </div>
         </Help>
         <Help title="Wie kann Excel erkennen, ob zwei Schüler*innen am selben Tag Geburtstag haben.">
@@ -27,7 +27,7 @@
     <Task i="4A" title="Simulation von 100 Durchgängen">
         <ol >
             <li>
-                Führt die Simolation 100 mal durch und wertet die Simulation aus, indem ihr zählt, wie oft mindestens zwei Schüler*innen am selben Tag Geburtstag haben.
+                Führt die Simulation 100 mal durch und wertet die Simulation aus, indem ihr zählt, wie oft mindestens zwei Schüler*innen am selben Tag Geburtstag haben.
             </li>
             <li>
                 Stellt die Auswertung in aussagekräftigen Diagrammen dar.
@@ -36,7 +36,7 @@
     </Task>
 
     <Task bonus i="5B" title="Simulation mit 40 Schüler*innen">
-        Wiederholt Aufgabe <span class="text-pink-600 font-bold">3A</span> und <span class="text-pink-600 font-bold">4A</span> diesmal mit 40 Schüler*innen und vergleicht eure Ergebnisse mit der vorherigen Simulation.
+        Wiederholt Aufgabe <span class="text-pink-600 font-bold">3A</span> und <span class="text-pink-600 font-bold">4A</span> diesmal mit 40 Schüler*innen und vergleicht eure Ergebnisse mit der vorherigen Simulation. Du findest die Vorlage auf einem weiteren Tabellenblatt der Vorlage.
     </Task>
     
 </TaskList>

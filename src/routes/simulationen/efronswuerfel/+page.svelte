@@ -9,13 +9,13 @@
     import Choice from '$lib/Choice.svelte';
     import Info from '$lib/Info.svelte';
 	import Katex from "$lib/Katex.svelte";
-    setContext("color", "green")
+    setContext("color", "teal")
 </script>
     
 
 <Headline src="/efron.png" title="Efrons Würfel" color="teal"/>
 <TaskList>
-    <Task>
+    <Task title="Einstieg">
         <YouTubeFrame id="y0_DEvRL5Xg" />
     </Task>
 
@@ -23,11 +23,11 @@
         <MaterialList title="Materialien:">
             <ul class="list-disc ml-5">
                 <li>
-                    2 <Katex eq="\times"/> 4 Efrons Würfel
+                 4 Efrons Würfel
                 </li>
             </ul>
         </MaterialList>
-        Spielt das Spiel je 1 vs 1. Wechselt ab, wer zuerst den Würfel auswählen darf und notiert die Wahl der Würfel und eure Ergebnisse. Spielt mindestens 20 Runden und stellt anschließend Vermutungen auf, welche Würfel eher gut oder schlecht sind. Notiert, welche Strategie ihr bei der Auswahl der Würfel verfolgt habt.
+        Spielt das Spiel gegeneinander. Wechselt ab, wer zuerst den Würfel auswählen darf und notiert die Wahl der Würfel und eure Ergebnisse. Spielt mindestens 20 Runden und stellt anschließend Vermutungen auf, welche Würfel eher gut oder schlecht sind. Notiert, welche Strategie ihr bei der Auswahl der Würfel verfolgt habt.
     </Task>
     <Task i=2 title="Simulation planen">
         <b>Wie kann dieses Problem mithilfe eines Tabellenkalkulationsprogramms simuliert werden?</b> <br/>
@@ -41,61 +41,59 @@
                 <a href="https://support.microsoft.com/de-de/office/index-funktion-a5dcf0dd-996d-40a4-a822-b56b061328bd">INDEX</a>
             </p>
         </Help>
-        <Help title="Wie kann ich einen Würfelwurf simulieren?">
-            Das ist hier nicht so einfach, denn die Funktion <a href="https://support.microsoft.com/de-de/office/zufallsbereich-funktion-4cc7f0d1-87dc-4eb7-987f-a469ab381685">ZUFALLSBEREICH(1;6)</a> funktioniert nur bei einem normalen Würfelwurf. <br/>
-            <b>Es gibt zwei Möglichkeiten:</b><br/>
-            <ul class="ml-10 list-disc">
-                <li>
-                    Man legt für jeden Würfel eine Liste an und wählt dann zufällig aus dieser Liste aus. Dies funktioniert mit einer Kombination aus den Funktionen
-                    <a class="a" href="https://support.microsoft.com/de-de/office/zufallsbereich-funktion-4cc7f0d1-87dc-4eb7-987f-a469ab381685">ZUFALLSBEREICH</a> 
-                    und 
-                    <a class="a" href="https://support.microsoft.com/de-de/office/index-funktion-a5dcf0dd-996d-40a4-a822-b56b061328bd">INDEX</a>
-                </li>
-                <li>
-                    Man ermittelt für jeden Würfel die Wahrscheinlichkeiten für die unterschiedlichen Ergebnisse. Anschließend generiert man für jeden Würfelwurf eine 
-                    <a class="a" href="https://support.microsoft.com/de-de/office/zufallszahl-funktion-4cbfa695-8869-4788-8d90-021ea9f5be73">ZUFALLSZAHL</a>. 
-                    Würfelt man beispielsweise mit einer Wahrscheinlichkeit von <Katex eq="30\%"/> eine fünf, so lässt sich dies simulieren, indem man prüft, ob die Zufallszahl kleiner als <Katex eq="0,3"/> ist.
-
-                </li>
-            </ul>
-
-        </Help>
 
     </Task>
     <Task i="3-5" title="In Teilgruppen">
         Teilt eure Gruppe auf. <br/>
-        Eine Teilgruppe wird für die Simulation in Excel hauptverantwortlich sein. Die zweite Teilgruppe berechnet mithilfe der im Unterricht erlernten Methoden die Wahrscheinlichkeit der jeweiligen Strategien. <br/>
+        Eine Teilgruppe wird für die Simulation in Excel hauptverantwortlich sein. Die zweite Teilgruppe berechnet mithilfe der im Unterricht erlernten Methoden die Gewinnwahrscheinlichkeiten der einzelnen Würfel. <br/>
         <b>
             Je nach Gruppe geht es jetzt für euch hier weiter: 
         </b>
         
-        <Choice choices={[{href:"/simulationen/geburtstagsproblem/simulieren", text:"Simulieren"}, {href:"/simulationen/geburtstagsproblem/berechnen", text:"Berechnen"}]}/>
+        <Choice choices={[{href:"/simulationen/efronswuerfel/simulieren", text:"Simulieren"}, {href:"/simulationen/efronswuerfel/berechnen", text:"Berechnen"}]}/>
 
     </Task>
 
     <Task i=6 title="Austausch" id="anchor1">
         Präsentiert jeweils der anderen Teilgruppe eure Ergebnisse. <br/>
-        <ol>
-            <li>
-                <b>Team Berechnen: </b> Erläutert eure Herleitung für die allgemeine Formel und präsentiert eure Daten für unterschiedliche Gruppengrößen.
-            </li>
-            <li>
-                <b>Team Simulieren: </b> Präsentiert eure Simulation, insbesondere die Analyse der zufällig generierten Geburtstage.
-            </li>
-            <li>
-                Vergleicht eure Ergebnisse für die Gruppe mit 23 Schüler*innen (und 40 Schüler*innen). Weichen die Ergebnisse voneinander ab? Wenn ja, warum?
-            </li>
-        </ol>        
+        <div class="grid grid-cols-2 gap-x-8 mt-2">
+            <div>
+                <div class="font-bold">Team Berechnen</div>
+                <ol>
+                    <li>
+                        Erläutert, wie ihr mithilfe der Baumdiagramme die Wahrscheinlichkeiten ermitteln konntet.
+                    </li>
+                    <li>
+                        Baut unter Anleitung des <b>Teams Simulieren</b> die Exceltabelle nach. 
+                    </li>
+                    
+                </ol>
+            </div>
+            <div>
+                <div class="font-bold">Team Simulieren</div>
+                <ol>
+                    <li>
+                        Präsentiert eure Ergebnisse und vergleicht mit den berechneten Wahrscheinlichkeiten.
+                    </li>
+                    <li>
+                        Helft dem <b>Team Berechnen</b> beim Nachbauen der Simulation. (Regel: Finger weg von Maus und Tastatur! 😉)
+                    </li>
+                    
+                </ol>
+            </div>
+        </div>
+            
     </Task>
     <Task i=7 title="Präsentation">
-        Bereitet ein 8-minütiges Referat vor. <br/>
+        Bereitet ein 8-10 minütiges Referat vor. <br/>
         <b>Checkliste:</b>
         <ul class="list-disc ml-10">
             <li>Einstieg der Interesse am Thema weckt und das Problem erklärt.</li>
             <li>Beschreibung der Teilschritte der Simulation</li>
             <li>Präsentation der Ergebnisse der Simulation</li>
-            <li>Ergebnisse der Berechnungen</li>
+            <li>Ergebnisse der Berechnungen (exemplarisch anhand eines Würfelpaares, z.B.: A gegen B)</li>
             <li>Vergleich der Ergebnisse der Simulation mit den Ergebnissen der Berechnung</li>
+            <li>Präsentation der optimalen Strategie</li>
         </ul>
     </Task>
 

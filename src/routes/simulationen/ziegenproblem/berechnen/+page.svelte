@@ -8,7 +8,7 @@
     import {setContext} from 'svelte';
     setContext("color", "green")
 </script>
-<Headline back="/simulationen/ziegenproblem#anchor1" src="/ziegenproblem.png" title="Ziegenproblem | Simulation"/>
+<Headline back="/simulationen/ziegenproblem#anchor1" src="/ziegenproblem.png" title="Ziegenproblem | Berechnen"/>
 <TaskList>
     <Task i="3B" title="Vereinfachung des Rechenweges">
         <ol>
@@ -22,7 +22,7 @@
             </li>
             <Solution title="mögliche Lösung">
                 Wir können das Problem vereinfachen, indem wir davon ausgehen, dass der Kandidat immer die 1. Tür öffnet, das Auto aber zufällig verteilt ist. <br/>
-                Oder anders ausgedrückt: Wir nennen <cite>o.B.d.A.</cite> die Tür, die der Kandidat öffnet Tür 1.
+                Oder anders ausgedrückt: Wir nennen <cite>o.B.d.A.</cite> die Tür, die der Kandidat öffnet, Tür 1.
             </Solution>
         </ol>
     </Task>

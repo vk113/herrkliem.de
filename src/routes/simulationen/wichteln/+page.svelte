@@ -28,7 +28,7 @@
         </MaterialList>
         Spielt das Wichteln in eurer Gruppe mindestens 10 mal durch. <br/>
         Notiert jeweils, wie viele Gruppenmitglieder ihren eigenen Zettel gezogen haben.
-        <Help title="Tabellenvorlage" isOpen>
+        <Help title="Tabellenvorlage">
             <table>
                 <tr>
                     <th>Durchgang <Katex eq="n" />
@@ -60,7 +60,7 @@
         </Help>
         </Task>
         <Task i=2 title="Simulation planen">
-            <b>Wie kann  dieses Problem mithilfe eines Tabellenkalkulationsprogramms simuliert werden?</b> <br/>
+            <b>Wie kann  dieses Problem mithilfe eines Tabellenkalkulationsprogramms simuliert und ausgewertet werden?</b> <br/>
             Gliedert dazu die Simulation in einzelne Teilschritte. Formuliert jeden Teilschritt und notiert Excelfunktionen, die für diesen Schritt hilfreich sind.
             <Help title="Liste mit (verlinkten) Excelfunktionen" >
                 <p class="excel-list">
@@ -76,7 +76,7 @@
         </Task>
         <Task i="3-5" title="In Teilgruppen">
             Teilt eure Gruppe auf. <br/>
-            Eine Teilgruppe wird für die Simulation in Excel hauptverantwortlich sein. Die zweite Teilgruppe berechnet mithilfe der im Unterricht erlernten Methoden die Wahrscheinlichkeit der jeweiligen Strategien. <br/>
+            Eine Teilgruppe wird für die Simulation in Excel hauptverantwortlich sein. Die zweite Teilgruppe wird mithilfe aller möglichen Kombinationen die Wahrscheinlich bei fünf Wichteln berechnen. <br/>
             <b>
                 Je nach Gruppe geht es jetzt für euch hier weiter: 
             </b>
@@ -86,22 +86,30 @@
         </Task>
 
         <Task i=6 title="Austausch" id="anchor1">
-            Präsentiert jeweils der anderen Teilgruppe eure Vorgehensweise und eure Ergebnisse.<br/>
-            Diskutiert dabei, welche Vor- und Nachteile die beiden Methoden haben. Befasst euch dabei vor allem mit folgenden Fragen:<br/>
-            <ul class="list-disc ml-10">
+            <ol>
                 <li>
-                    Welche Methode ist genauer?
+
+                    Präsentiert jeweils der anderen Teilgruppe eure Vorgehensweise und eure Ergebnisse.<br/>
+                    Diskutiert dabei, welche Vor- und Nachteile die beiden Methoden haben. Befasst euch dabei vor allem mit folgenden Fragen:<br/>
+                    <ul class="list-disc ml-10">
+                        <li>
+                            Welche Methode ist genauer?
+                        </li>
+                        <li>
+                            Warum kann mit Methode <cite>Berechnen</cite> die Wahrscheinlichkeit bei 20 Wichteln kaum berechnet werden?
+                        </li>
+                    </ul>            
                 </li>
                 <li>
-                    Warum kann mit Methode <cite>Berechnen</cite> die Wahrscheinlichkeit bei 20 Wichteln kaum berechnet werden?
+                    Vergleicht eure Ergebnisse mit euren Erfahrungen aus der Realsimulation.
                 </li>
-            </ul>            
+            </ol>
         </Task>
         <Task i=7 title="Präsentation">
-            Bereitet ein 8-minütiges Referat vor. <br/>
+            Bereitet ein 8-10 minütiges Referat vor. <br/>
             <b>Checkliste:</b>
             <ul class="list-disc ml-10">
-                <li>Einstieg der Interesse am Thema weckt und die Situation erklärt</li>
+                <li>Einstieg, der Interesse am Thema weckt und die Situation erklärt</li>
                 <li>Beschreibung der Teilschritte der Simulation</li>
                 <li>Präsentation der Ergebnisse der Simulation</li>
                 <li>Herleitung der Wahrscheinlichkeit mithilfe aller Kombinationen</li>

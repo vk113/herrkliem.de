@@ -12,7 +12,7 @@
 <Headline back="/simulationen/ziegenproblem#anchor1" src="/ziegenproblem.png" title="Ziegenproblem | Simulation"/>
 <TaskList>
     <Task i="3A" title="Simulation eines Durchgangs">
-        Simuliere einen Durchgang mit beiden Strategien. Dabei sollte die Position des Autos als auch die erste Wahl des Kandidatens zufällig sein. Evaluiert jeweils automatisch, ob die Strategie gewinnt. <br/>
+        Simuliert einen Durchgang mit beiden Strategien. Dabei sollte die Position des Autos als auch die erste Wahl des Kandidatens zufällig sein. Evaluiert jeweils automatisch, ob die Strategie gewinnt. <br/>
         <Help title="Excel Vorlage">
             Du <i>kannst</i> für die Simulation die folgende Excelvorlage verwenden:
             <div class="w-full">
@@ -33,7 +33,7 @@
     <Task i="4A" title="Simulation von 1000 Durchgängen">
         <ol >
             <li>
-                Führt die Simolation 1000 Mal durch und wertet die Simulation aus, indem ihr zählt, wie oft welche Strategie erfolgreich war.
+                Führt die Simulation 1000 Mal durch und wertet die Simulation aus, indem ihr zählt, wie oft welche Strategie erfolgreich war.
             </li>
             <li>
                 Stellt die Auswertung in aussagekräftigen Diagrammen dar.

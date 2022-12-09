@@ -151,10 +151,10 @@
             
         </Task>
         <Task i=7 title="Präsentation">
-            Bereitet ein 8-minütiges Referat vor. <br/>
+            Bereitet ein 8-10 minütiges Referat vor. <br/>
             <b>Checkliste:</b>
             <ul class="list-disc ml-10">
-                <li>Einstieg der Interesse am Thema weckt und das Spiel erklärt.</li>
+                <li>Einstieg, der Interesse am Thema weckt und das Spiel erklärt.</li>
                 <li>Beschreibung der Teilschritte der Simulation</li>
                 <li>Präsentation der Ergebnisse der Simulation</li>
                 <li>Rechnerische Herleitung der Wahrscheinlichkeiten anhand der Baumdiagramme</li>

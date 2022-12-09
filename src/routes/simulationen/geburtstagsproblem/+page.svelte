@@ -14,7 +14,7 @@
 
 <Headline src="/geburtstagsproblem.png" title="Geburtstagsproblem" color="pink"/>
 <TaskList>    
-    <Task src="/vertauschte_briefe.png">
+    <Task title="Einstieg">
         <YouTubeFrame id="oT4Mp6Shkbg" />
     </Task>
     <Task i="1" title="Realsimulation">
@@ -47,12 +47,12 @@
     </Task>
     <Task i="3-5" title="In Teilgruppen">
         Teilt eure Gruppe auf. <br/>
-        Eine Teilgruppe wird für die Simulation in Excel hauptverantwortlich sein. Die zweite Teilgruppe berechnet mithilfe der im Unterricht erlernten Methoden die Wahrscheinlichkeit der jeweiligen Strategien. <br/>
+        Eine Teilgruppe wird für die Simulation in Excel hauptverantwortlich sein. Die zweite Teilgruppe berechnet mithilfe der im Unterricht erlernten Methoden die Wahrscheinlichkeiten für verschiedene Gruppengrößen. <br/>
         <b>
             Je nach Gruppe geht es jetzt für euch hier weiter: 
         </b>
         
-        <Choice choices={[{href:"/simulationen/geburtstagsproblem/simulieren", text:"Simulieren"}, {href:"/simulationen/geburtstagsproblem/berechnen", text:"Berechnen"}]}/>
+        <Choice choices={[{href:"/simulationen/geburtstagsproblem/simulieren", text:"Simulieren"}, {href:"/simulationen/geburtstagsproblem/berechnewn", text:"Berechnen"}]}/>
 
     </Task>
 
@@ -63,7 +63,7 @@
                 <b>Team Berechnen: </b> Erläutert eure Herleitung für die allgemeine Formel und präsentiert eure Daten für unterschiedliche Gruppengrößen.
             </li>
             <li>
-                <b>Team Simulieren: </b> Präsentiert eure Simulation, insbesondere die Analyse der zufällig generierten Geburtstage.
+                <b>Team Simulieren: </b> Präsentiert eure Simulation. Erklärt eure Herangehensweise, insbesondere die Analyse der zufällig generierten Geburtstage.
             </li>
             <li>
                 Vergleicht eure Ergebnisse für die Gruppe mit 23 Schüler*innen (und 40 Schüler*innen). Weichen die Ergebnisse voneinander ab? Wenn ja, warum?
@@ -71,7 +71,7 @@
         </ol>        
     </Task>
     <Task i=7 title="Präsentation">
-        Bereitet ein 8-minütiges Referat vor. <br/>
+        Bereitet ein 8-10 minütiges Referat vor. <br/>
         <b>Checkliste:</b>
         <ul class="list-disc ml-10">
             <li>Einstieg der Interesse am Thema weckt und das Problem erklärt.</li>

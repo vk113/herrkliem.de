@@ -6,7 +6,6 @@
     import {getContext} from 'svelte';
 
     let color = getContext("color")
-    console.log(color)
 </script>
 
 <div class:opacity-80={bonus} class="card w-full relative group" {id}>

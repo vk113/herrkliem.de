@@ -15,13 +15,13 @@
         Im folgenden betrachten wir das Ereignis <Katex eq="A:"/> <q class="italic">Mindestens zwei Schüler*innen haben am selben Tag Geburtstag.</q>
         <ol>
             <li>
-                Formuliere ein passendes Urnenmodell zum Geburtstagsproblem. 
+                Formuliert ein passendes Urnenmodell zum Geburtstagsproblem. 
             </li>
             <li>
-                Beschreibe, wie sich das Gegenereignis nutzen lässt, um die Wahrscheinlichkeit <Katex eq="p(A)"/> umzuformulieren.
+                Beschreibt, wie sich das Gegenereignis nutzen lässt, um die Wahrscheinlichkeit <Katex eq="p(A)"/> zu berechnen.
             </li>
             <li>
-                Berechne die Wahrscheinlichkeit <Katex eq="p(A)"/> in einer Gruppe von fünf Schüler*innen.
+                Berechnet die Wahrscheinlichkeit <Katex eq="p(A)"/> in einer Gruppe von fünf Schüler*innen.
             </li>
         </ol>
     </Task>
@@ -38,12 +38,17 @@
                 Leitet eine allgemeine Formel für die Wahrscheinlichkeit  <Katex eq="p(A)"/> in einer Gruppe mit <Katex eq="n"/> Schüler*innen her.
             </li>
         </ol>
+        <Solution title="Lösung">
+            <div class="text-center">
+                <Katex eq="p(A) = {"\\frac{365!}{365^n\\cdot(365-n)!}"}"/>
+            </div>
+        </Solution>
     </Task>
     <Task i="5B" title="Berechnung der Wahrscheinlichkeiten für unterschiedliche Gruppengrößen">
         <ol>
             <li>
-                Nutzt die in <span class="text-pink-700 font-bold">4B c.</span> hergeleitete Formel zur Berechnung der Wahrscheinlichkeit bei verschiedenen Gruppengrößen. Ladet euch dazu folgende Vorlage herunter: 
-                <ExcelDownload filename="Vorlage Geburtstagsproblem Berechnung"/>
+                In der folgenden Exceltabelle wurde die in <span class="text-pink-700 font-bold">4B c.</span> hergeleitete Formel genutzt um die Wahrscheinlichkeit für verschiedene Gruppengrößen zu berechnen.
+                <ExcelDownload href="/vorlagen/geburtstagsproblem_berechnen.xlsx" filename="Vorlage Geburtstagsproblem Berechnung"/>
             </li>
             <li>
                 Erstellt ein Diagramm, welches die Wahrscheinlichkeit in Abhängigkeit der Gruppengröße darstellt.
