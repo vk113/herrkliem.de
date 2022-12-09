@@ -52,7 +52,7 @@
             Je nach Gruppe geht es jetzt für euch hier weiter: 
         </b>
         
-        <Choice choices={[{href:"/simulationen/geburtstagsproblem/simulieren", text:"Simulieren"}, {href:"/simulationen/geburtstagsproblem/berechnewn", text:"Berechnen"}]}/>
+        <Choice choices={[{href:"/simulationen/geburtstagsproblem/simulieren", text:"Simulieren"}, {href:"/simulationen/geburtstagsproblem/berechnen", text:"Berechnen"}]}/>
 
     </Task>
 
