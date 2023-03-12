@@ -18,15 +18,15 @@
                 Formuliert ein passendes Urnenmodell zum Geburtstagsproblem. 
             </li>
             <li>
-                Beschreibt, wie sich das Gegenereignis nutzen lässt, um die Wahrscheinlichkeit <Katex eq="p(A)"/> zu berechnen.
+                Beschreibt, wie sich das Gegenereignis nutzen lässt, um die Wahrscheinlichkeit <Katex eq="P(A)"/> zu berechnen.
             </li>
             <li>
-                Berechnet die Wahrscheinlichkeit <Katex eq="p(A)"/> in einer Gruppe von fünf Schüler*innen.
+                Berechnet die Wahrscheinlichkeit <Katex eq="P(A)"/> in einer Gruppe von fünf Schüler*innen.
             </li>
         </ol>
     </Task>
     <Task i="4B" title="Allgemeine Lösung des Geburtstagsproblems">
-        Es soll eine allgemeine Formel für die Wahrscheinlichkeit <Katex eq="p(A)"/> Schüler*innen hergleitet werden. Geht dabei wie folgt vor: 
+        Es soll eine allgemeine Formel für die Wahrscheinlichkeit <Katex eq="P(A)"/> Schüler*innen hergleitet werden. Geht dabei wie folgt vor: 
         <ol>
             <li>
                 Recherchiert, was man in der Mathematik unter Fakultät versteht und berechnet <Katex eq="6!"/>
@@ -35,12 +35,12 @@
                 Begründet, dass folgende Gleichung gilt: <Katex eq="365\cdot364\cdot363\cdot362\cdot361\cdot360 = \frac{"{"}365!{"}{359!}"}"/>
             </li>
             <li>
-                Leitet eine allgemeine Formel für die Wahrscheinlichkeit  <Katex eq="p(A)"/> in einer Gruppe mit <Katex eq="n"/> Schüler*innen her.
+                Leitet eine allgemeine Formel für die Wahrscheinlichkeit  <Katex eq="P(A)"/> in einer Gruppe mit <Katex eq="n"/> Schüler*innen her.
             </li>
         </ol>
         <Solution title="Lösung">
             <div class="text-center">
-                <Katex eq="p(A) = {"\\frac{365!}{365^n\\cdot(365-n)!}"}"/>
+                <Katex eq="P(A) = {"\\frac{365!}{365^n\\cdot(365-n)!}"}"/>
             </div>
         </Solution>
     </Task>

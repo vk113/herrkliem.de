@@ -20,22 +20,22 @@
                 Zeichnet zu den Ereignissen
                 <ul class="list-disc ml-10">
                     <li>
-                        <Katex eq="p("/><q class="italic">Würfel A gewinnt gegen Würfel B</q><Katex eq=")"/>
+                        <Katex eq="P("/><q class="italic">Würfel A gewinnt gegen Würfel B</q><Katex eq=")"/>
                     </li>
                     <li>
-                        <Katex eq="p("/><q class="italic">Würfel A gewinnt gegen Würfel C</q><Katex eq=")"/>
+                        <Katex eq="P("/><q class="italic">Würfel A gewinnt gegen Würfel C</q><Katex eq=")"/>
                     </li>
                     <li>
-                        <Katex eq="p("/><q class="italic">Würfel A gewinnt gegen Würfel D</q><Katex eq=")"/>
+                        <Katex eq="P("/><q class="italic">Würfel A gewinnt gegen Würfel D</q><Katex eq=")"/>
                     </li>
                     <li>
-                        <Katex eq="p("/><q class="italic">Würfel B gewinnt gegen Würfel C</q><Katex eq=")"/>
+                        <Katex eq="P("/><q class="italic">Würfel B gewinnt gegen Würfel C</q><Katex eq=")"/>
                     </li>
                     <li>
-                        <Katex eq="p("/><q class="italic">Würfel B gewinnt gegen Würfel D</q><Katex eq=")"/>
+                        <Katex eq="P("/><q class="italic">Würfel B gewinnt gegen Würfel D</q><Katex eq=")"/>
                     </li>
                     <li>
-                        <Katex eq="p("/><q class="italic">Würfel C gewinnt gegen Würfel D</q><Katex eq=")"/>
+                        <Katex eq="P("/><q class="italic">Würfel C gewinnt gegen Würfel D</q><Katex eq=")"/>
                     </li>
                 </ul>
                 je ein passendes Baumdiagramm und berechnet die Wahrscheinlichkeiten.

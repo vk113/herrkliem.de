@@ -8,7 +8,7 @@
     let color = getContext("color")
 </script>
 
-<div class:opacity-80={bonus} class="card w-full relative group" {id}>
+<div class:opacity-80={bonus} class="card w-full relative group text-sm sm:text-normal" {id}>
     <div class="absolute bg-white h-8 w-8 -left-11 rounded-full border-gray-500 border-4 group-hover:scale-[1.1]  duration-200  
      
     {color=='blue'?'group-hover:bg-blue-200 group-hover:border-blue-800':''}

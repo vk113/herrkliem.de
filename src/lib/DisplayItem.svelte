@@ -15,8 +15,8 @@
     {color=='purple'?'text-purple-800':''}
     {color=='teal'?'text-teal-800':''}">
         <a href={link}>
-            <img {src} alt="" class="h-24 object-contain mx-auto">
-            <div class="label text-lg font-bold">
+            <img {src} alt="" class="h-20 sm:h-24 object-contain mx-auto">
+            <div class="label sm:text-lg font-bold">
                 {label}
             </div>
         </a>

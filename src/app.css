@@ -8,7 +8,7 @@
         @apply bg-white p-2 rounded-md shadow-md;
     }
     h3 {
-        @apply font-bold text-xl;
+        @apply font-bold sm:text-xl;
     }
     ol {
         list-style-type: lower-alpha;
