@@ -40,7 +40,7 @@
         </ol>
         <Solution title="Lösung">
             <div class="text-center">
-                <Katex eq="P(A) = {"\\frac{365!}{365^n\\cdot(365-n)!}"}"/>
+                <Katex eq="P(A) = {"1-\\frac{365!}{365^n\\cdot(365-n)!}"}"/>
             </div>
         </Solution>
     </Task>
