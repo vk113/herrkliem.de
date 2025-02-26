@@ -33,6 +33,9 @@
             <li>
                 <a href="/simulationen">Simulation von Zufallsexperimenten</a>
             </li>
+            <li>
+                <a href="/signifikanztest">Signifikanztest</a>
+            </li>
         </ul>
 
     </div>
